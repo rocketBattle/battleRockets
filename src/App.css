@@ -234,4 +234,33 @@ html {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+.wrapper {
+  margin: 0 auto;
+}
+
+.board {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 400px;
+}
+
+.board .cell {
+  width: 10%;
+  height: 40px;
+  display: inline-block;
+  background-color: salmon;
+  border: 1px solid black;
+}
+
+.board .cells2 {
+  width: 10%;
+  height: 40px;
+  display: inline-block;
+  background-color: black;
+  border: 1px solid salmon;
+}
 /*# sourceMappingURL=App.css.map */
