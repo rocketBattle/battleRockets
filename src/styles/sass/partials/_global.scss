@@ -1,0 +1,24 @@
+.wrapper {
+    margin: 0 auto;
+}
+
+.board {
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+    .cell {
+        width: 10%;
+        height: 40px;
+        display: inline-block;
+        background-color: salmon;
+        border: 1px solid black;
+    }
+
+    .cells2 {
+        width: 10%;
+        height: 40px;
+        display: inline-block;
+        background-color: black;
+        border: 1px solid salmon;
+    }
+}
