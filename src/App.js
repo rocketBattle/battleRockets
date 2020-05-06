@@ -1,39 +1,21 @@
 import React, { Component } from 'react';
-import './App.css';
-import axios from 'axios';
+import './App.scss';
 import LandingPage from './Components/LandingPage';
-import RocketsInfo from './Components/RocketsInfo';
-import GameBoard from './Components/GameBoard';
-import GameBoard2 from './Components/GameBoard2';
-
+import GameBoard from './Components/GameBoard'
+import { 
+  BrowserRouter as Router, 
+  Route } from 'react-router-dom';
 
 class App extends Component {
-  // getRockets = () => {
-  //   const url = 'https://api.spacexdata.com/v3/rockets/'
-  
-  //   // library we pulled from npm, in github. JSX version of Ajax. 
-  //   axios({
-  //     method: 'GET',
-  //     url: url,
-  //   }).then((results) => {
-  //     console.log(results)
-  //     this.setState({
-  //       artArray: results.data.artObjects
-  //     })
-  //   })
-  // }
 
   render() {
     return (
-      <>
-        <LandingPage />
-        <main>
-          <h1>Hi guys!</h1>
-          <GameBoard />
-          <GameBoard2 />
-          <RocketsInfo />
-        </main>
-      </>
+      <Router>
+        <React.Fragment>
+          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/GameBoard" component={GameBoard} />
+        </React.Fragment>
+      </Router>
     )
   }
 }
