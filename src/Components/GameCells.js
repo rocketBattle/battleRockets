@@ -8,29 +8,59 @@ class GameCells extends Component {
             hit: false,
             empty: true,
             userInput: '',
-            rocket1Location: [],
-            rocket2Location: [],
-            rocket3Location: [],
-            rocket4Location: [],
-            
-            // thereAreRockets: ['A1','A2','A3','E2'],
+            rocket1Location: ['A1','A2','A3','E2'],
+            rocket2Location: ['B1','D4','H1','E2'],
+            rocket3Location: ['D1','C5','B1','E7'],
+            rocket4Location: ['E1','G2','F3','D7'],
+            boardSize: 7,
+            charArray: ["A", "B", "C", "D", "E", "F", "G"]
             // rocketLocation: {
             //     rocket1: {
             //         location: ['A1','A2','A3','E2']
             //     },
             //     rocket2: {
-            //         location: ['A1','A2','A3','E2']
+            //         location: ['B1','D4','H1','E2']
             //     },
             //     rocket3: {
-            //         location: ['A1','A2','A3','E2']
+            //         location: ['D1','C5','B1','E7']
             //     },
             //     rocket4: {
-            //         location: ['A1','A2','A3','E2']
+            //         location: ['E1','G2','F3','D7']
             //     },
             // }
         }
     }
 
+    userGuess = (guess) => {
+        if (guess === null || guess.length !== 2) {
+            alert('need a valid guess please');
+        } else {
+            let firstChar = guess.charAt(0);
+            let letter = this.state.charArray.indexOf(firstChar);
+            let number = guess.charAt(1); 
+
+            if (isNaN(letter) || isNaN(number)) {
+                alert(`not valid input`)
+            } else if (letter < 0 || letter >= this.state.boardSize || number < 0 || number >= this.state.boardSize) {
+                alert(`input not on the board`)
+            } else {
+                return letter + number; 
+            }
+        }
+        return null;
+    }
+
+    // generateRocketLocations: function () {
+    //     let locations;
+    //     for (let i = 0; i < template.rockets.numShips; i++) {
+    //         do {
+    //         locations = this.generateRocket(); 
+    //         } while (this.collision(locations));
+    //         this.rockets[i].details.locations = locations;
+    //     }
+    //     console.log("rockets");
+    //     console.log(this.rockets);
+    // }
     // clickFunction = (e) => {
         
     //     if (this.state.empty === true) {
@@ -49,38 +79,28 @@ class GameCells extends Component {
     //     console.log(this.state.empty)
     // }
 
+
     handleUserInput = (event) => {
         this.setState({
             userInput: event.target.value
         })
-        console.log(this.state.userInput)
+        // console.log(this.state.userInput)
     }
 
     //compare the input against the string content of the cell. 
     // 
     checkHit = (e) => {
         e.preventDefault();
-
-        console.log(this.state.userInput)
-
-        console.log(e.target)
-        if (this.state.rocket1Location.includes(this.state.userInput)) {
-            console.log('You hit a ship!')
-            
+        this.userGuess(this.state.userInput); 
+        // console.log(this.state.userInput)
+        // console.log(e.target)
+        if (this.state.rocket4Location.includes(this.state.userInput)) {
+            console.log('You hit a ship!') 
         } else {
             console.log('noooooooooooo you suck, never play this game again')
         }
 
         //call clickFunction()
-
-
-        // GENERATE SHIPS AND PUSH NEW LOCATIONS TO THE STATE 
-        console.log(
-            this.state.rocket1Location, 
-            this.state.rocket2Location, 
-            this.state.rocket3Location, 
-            this.state.rocket4Location
-        )
     }
     
     
@@ -96,12 +116,12 @@ class GameCells extends Component {
                         <tbody>
                             <tr>
                                 <td onClick={this.clickFunction} id="A1" data-value='A1'>A1</td>
-                                <td id="2">A2</td>
-                                <td id="3">A3</td>
-                                <td id="4">A4</td>
-                                <td id="5">A5</td>
-                                <td id="6">A6</td>
-                                <td id="7">A7</td>
+                                <td data-value='A2' id="2">A2</td>
+                                <td data-value='A3' id="3">A3</td>
+                                <td data-value='A4' id="4">A4</td>
+                                <td data-value='A5' id="5">A5</td>
+                                <td data-value='A6' id="6">A6</td>
+                                <td data-value='A7' id="7">A7</td>
                             </tr>
                             <tr>
                                 <td id="8">B1</td>
