@@ -255,4 +255,16 @@ td {
   height: 40px;
   border: 1px solid green;
 }
+
+.shipHit {
+  background-color: red;
+}
+
+.blankHit {
+  background-color: orange;
+}
+
+.normal {
+  background-color: white;
+}
 /*# sourceMappingURL=App.css.map */

@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import Rockets from './Rockets';
-import Cell from './Cell'
+// import Cell from './Cell'
 
 class GameCells extends Component {
     constructor() {
         super()
         this.state = {
-            // rocketHit: false,
-            // blankHit: false,
             empty: true,
-            // miss: true,
             userInput: '',
             // rocket1Location: ['A1','A2','A3','E2'],
             // rocket2Location: ['B1','D4','H1','E2'],
@@ -21,24 +18,293 @@ class GameCells extends Component {
             rocketLocation: [
                 {
                     name: 'rocket1',
-                    location: ['A1','A2','A3','E2']
+                    shipLength: 1,
+                    location: ['A1']
+
                 },
                 {
                     name: 'rocket2',
-                    location: ['B1','D4','H1']
+                    shipLength: 2,
+                    location: ['B4']
                 },
                 {
                     name: 'rocket3',
-                    location: ['D1','C5']
+                    shipLength: 3,
+                    location: ['E7']
                 },
                 {
                     name: 'rocket4',
-                    location: ['E1']
+                    shipLength: 4,
+                    location: ['G2']
                 },
             ],
-            cellArray: []
+            cellArray: [
+                [   
+                    {
+                        id: 'A1', 
+                        hasRocket: true,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'A2',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'A3',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'A4',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'A5', 
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'A6',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'A7',
+                        hasRocket: false,
+                        hasRocketbeenHit: true,
+                    },
+                ], [   
+                    {
+                        id: 'B1',
+                        hasRocket: false,
+                        hasRocketbeenHit: true,
+                    },
+                    {
+                        id: 'B2',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'B3',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'B4',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'B5',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'B6',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'B7',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                ], [   
+                    {
+                        id: 'C1',
+                        hasRocket: false,
+                            hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'C2',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'C3',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'C4',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'C5',
+                        hasRocket: false,
+                            hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'C6',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'C7',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                ], [
+                    {
+                        id: 'D1',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'D2',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'D3',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'D4',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'D5',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'D6',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'D7',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                ], [
+                    {
+                        id: 'E1',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'E2',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'E3',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'E4',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'E5',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'E6',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'E7',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                ], [   
+                    {
+                        id: 'F1',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'F2',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'F3',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'F4',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'F5',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'F6',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'F7',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                ], [
+                    {
+                        id: 'G1',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'G2',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'G3',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'G4',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'G5',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'G6',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                    {
+                        id: 'G7',
+                        hasRocket: false,
+                        hasRocketbeenHit: false,
+                    },
+                ],
+            ],
+            newRocketLocations: [],
+            numRockets: 4
         }
     }
+
+    // componentDidMount(){
+    //     this.generateRocketLocations();
+    // }
+
+
+    // userGuess function called when user submits in the input.
+
 
     userGuess = (guess) => {
         if (guess === null || guess.length !== 2) {
@@ -59,17 +325,64 @@ class GameCells extends Component {
         return null;
     }
 
-    // generateRocketLocations: function () {
+
+
+    // Generate Rocket Location
+
+
+
+
+    // generateRocketLocations = () => {
     //     let locations;
-    //     for (let i = 0; i < template.rockets.numShips; i++) {
+    //     for (let i = 0; i < this.state.numRockets; i++) {
     //         do {
     //         locations = this.generateRocket(); 
     //         } while (this.collision(locations));
-    //         this.rockets[i].details.locations = locations;
+    //         this.state.rocketLocation[i].location = locations;
     //     }
     //     console.log("rockets");
-    //     console.log(this.rockets);
+    //     console.log(this.rocketsLocation);
     // }
+
+
+
+
+
+
+    // generate rocket randomly onto the gameboard 
+
+
+
+    generateRocket = () => {
+    let direction = Math.floor(Math.random() * 2); 
+    let row, col; 
+    let newRocketLocations = [...this.state.newRocketLocations];
+    this.state.rocketLocation.map((shipz)=>{
+        
+        if (direction === 1) {
+          row = Math.floor(Math.random() * this.state.boardSize);
+          col = Math.floor(Math.random() * this.state.boardSize - shipz.shipLength + 1);
+        } else {
+          col = Math.floor(Math.random() * this.state.boardSize);
+          row = Math.floor(Math.random() * this.state.boardSize - shipz.shipLength + 1); 
+        } 
+
+        for (let i = 0; i < shipz.shipLength; i++){
+            console.log('hi')
+            // if (direction === 1) {
+            //     newRocketLocations.push( row + '' + (col + 1) )
+            // // newRocketLocations.push(row + '' + (col + 1));
+            // } else {
+            // // newRocketLocations.push((row + 1) + '' + col);
+            // } 
+        }
+        // return newRocketLocations; 
+    })
+    this.setState({
+        newRocketLocations: newRocketLocations 
+    })
+}
+
 
 
     // Declare classes in CSS to mark what's hit or missed
@@ -81,12 +394,25 @@ class GameCells extends Component {
     // Each cell's state
 
     // if the cell with a state of empty has been hit && there is no ship value, state is empty else change the state to 'hit', if not stay empty
+
     handleUserInput = (event) => {
         this.setState({
             userInput: event.target.value
         })
-        // console.log(this.state.userInput)
     }
+
+
+
+    callFunction = (cell) => {
+        // console.log(cell)
+        if (cell.hasRocketbeenHit === true) {
+            return 'shipHit'
+        } else {
+            return 'normal'
+
+        }
+    }
+
 
     //compare the input against the string content of the cell. 
     
@@ -97,8 +423,18 @@ class GameCells extends Component {
         // console.log(e.target)
         this.state.rocketLocation.map((setLocation) => {     
             if (setLocation.location.includes(this.state.userInput)) {
+                this.state.cellArray.map((cellz)=>{
+                    return(
+                        cellz.map((cell) => {
+                            // console.log(cell)
+                            if (this.state.userInput === cell.id) {
+                                
+                                // this is where we change state to true, which should change the color of the item.
+                            } 
+                        })
+                    )
+                })
                 console.log('You hit a ship!') 
-                console.log(setLocation.location)
                 // compare rocketHits to the location to determine if a rocket was destroyed 
 
                 // cells, states: how do we set a default blank state for all of the 49 cells within the array 
@@ -138,6 +474,8 @@ class GameCells extends Component {
     }
 
 
+
+
     render() {
         return (
             <div className="board">
@@ -147,7 +485,23 @@ class GameCells extends Component {
                 <form action="#" onSubmit={this.checkHit}>
                 <table>
                     <tbody>
-                    <tr>
+                        {this.state.cellArray.map((tr)=>{
+                            // console.log(tr)
+                            return(
+                                
+                                    <tr>
+                                        {tr.map((td)=>{
+                                            // console.log(td)
+                                            return(
+
+                                                <td className={this.callFunction(td)}>{td.id}</td>
+                                            )
+                                        })}
+                                    </tr>
+                                
+                            )
+                        })}
+                    {/* <tr>
                         <td
                         className={
                             this.state.rocketHit ? "normal" : "shipHit"}
@@ -162,61 +516,7 @@ class GameCells extends Component {
                         <td id="5">A5</td>
                         <td id="6">A6</td>
                         <Cell shipYes={true} />
-                    </tr>
-                    <tr>
-                        <td id="8">B1</td>
-                        <td id="9">B2</td>
-                        <td id="10">B3</td>
-                        <td id="11">B4</td>
-                        <td id="12">B5</td>
-                        <td id="13">B6</td>
-                        <td id="14">B7</td>
-                    </tr>
-                    <tr>
-                        <td id="15">C1</td>
-                        <td id="16">C2</td>
-                        <td id="17">C3</td>
-                        <td id="18">C4</td>
-                        <td id="19">C5</td>
-                        <td id="20">C6</td>
-                        <td id="21">C7</td>
-                    </tr>
-                    <tr>
-                        <td id="22">D1</td>
-                        <td id="23">D2</td>
-                        <td id="24">D3</td>
-                        <td id="25">D4</td>
-                        <td id="26">D5</td>
-                        <td id="27">D6</td>
-                        <td id="28">D7</td>
-                    </tr>
-                    <tr>
-                        <td id="29">E1</td>
-                        <td id="30">E2</td>
-                        <td id="31">E3</td>
-                        <td id="32">E4</td>
-                        <td id="33">E5</td>
-                        <td id="34">E6</td>
-                        <td id="35">E7</td>
-                    </tr>
-                    <tr>
-                        <td id="36">F1</td>
-                        <td id="37">F2</td>
-                        <td id="38">F3</td>
-                        <td id="39">F4</td>
-                        <td id="40">F5</td>
-                        <td id="41">F6</td>
-                        <td id="42">F7</td>
-                    </tr>
-                    <tr>
-                        <td id="43">G1</td>
-                        <td id="44">G2</td>
-                        <td id="45">G3</td>
-                        <td id="46">G4</td>
-                        <td id="47">G5</td>
-                        <td id="48">G6</td>
-                        <td id="49">G7</td>
-                    </tr>
+                    </tr>*/}
                     </tbody>
                 </table>
                 <input
