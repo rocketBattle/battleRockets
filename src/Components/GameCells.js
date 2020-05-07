@@ -107,7 +107,7 @@ class GameCells extends Component {
         this.userGuess(this.state.userInput); 
         // console.log(this.state.userInput)
         // console.log(e.target)
-        if (this.state.rocket4Location.includes(this.state.userInput)) {
+        if (this.state.rocket1Location.includes(this.state.userInput)) {
             console.log('You hit a ship!') 
         console.log(this.state.userInput)
 
