@@ -11,10 +11,78 @@ class GameCells extends Component {
             empty: true,
             // miss: true,
             userInput: '',
+            rocket1Location: ['A1','A2','A3','E2'],
+            rocket2Location: ['B1','D4','H1','E2'],
+            rocket3Location: ['D1','C5','B1','E7'],
+            rocket4Location: ['E1','G2','F3','D7'],
+            boardSize: 7,
+            charArray: ["A", "B", "C", "D", "E", "F", "G"],
             hitClass: '',
-            isThereRockets: ['A1','A2','A3', 'A4'],
+            isThereRockets: ['A1','A2','A3', 'A4']+
+            // rocketLocation: {
+            //     rocket1: {
+            //         location: ['A1','A2','A3','E2']
+            //     },
+            //     rocket2: {
+            //         location: ['B1','D4','H1','E2']
+            //     },
+            //     rocket3: {
+            //         location: ['D1','C5','B1','E7']
+            //     },
+            //     rocket4: {
+            //         location: ['E1','G2','F3','D7']
+            //     },
+            // }
         }
     }
+
+    userGuess = (guess) => {
+        if (guess === null || guess.length !== 2) {
+            alert('need a valid guess please');
+        } else {
+            let firstChar = guess.charAt(0);
+            let letter = this.state.charArray.indexOf(firstChar);
+            let number = guess.charAt(1); 
+
+            if (isNaN(letter) || isNaN(number)) {
+                alert(`not valid input`)
+            } else if (letter < 0 || letter >= this.state.boardSize || number < 0 || number >= this.state.boardSize) {
+                alert(`input not on the board`)
+            } else {
+                return letter + number; 
+            }
+        }
+        return null;
+    }
+
+    // generateRocketLocations: function () {
+    //     let locations;
+    //     for (let i = 0; i < template.rockets.numShips; i++) {
+    //         do {
+    //         locations = this.generateRocket(); 
+    //         } while (this.collision(locations));
+    //         this.rockets[i].details.locations = locations;
+    //     }
+    //     console.log("rockets");
+    //     console.log(this.rockets);
+    // }
+    // clickFunction = (e) => {
+        
+    //     if (this.state.empty === true) {
+    //         this.setState({
+    //             hit: false
+                
+    //         }) 
+    //         console.log("You miss!") 
+    //     } else if (this.state.empty === false) {
+    //         this.setState({
+    //             hit: true,
+    //             empty: true
+    //         })
+    //         console.log("Hit!");
+    //     }
+    //     console.log(this.state.empty)
+    // }
 
     // Declare classes in CSS to mark what's hit or missed
     // Hard code which items in the cells array have ships
@@ -29,14 +97,18 @@ class GameCells extends Component {
         this.setState({
             userInput: event.target.value
         })
-        console.log(this.state.userInput)
+        // console.log(this.state.userInput)
     }
 
     //compare the input against the string content of the cell. 
     
     checkHit = (e) => {
         e.preventDefault();
-
+        this.userGuess(this.state.userInput); 
+        // console.log(this.state.userInput)
+        // console.log(e.target)
+        if (this.state.rocket4Location.includes(this.state.userInput)) {
+            console.log('You hit a ship!') 
         console.log(this.state.userInput)
 
         console.log(e.target)
@@ -45,16 +117,16 @@ class GameCells extends Component {
             this.setState({
                 rocketHit: !this.state.rocketHit   
             });
-            
-
         } else {
             this.setState({
                 blankHit: !this.state.blankHit
             })
         }
+
         //call clickFunction()
     }
-
+    
+      
     changeCellClass = () => {
         this.checkHit( )
             if (this.state.empty === false) {
