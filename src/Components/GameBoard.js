@@ -12,11 +12,11 @@ class GameBoard extends Component {
     }
 
     componentDidMount() {
-        if (this.state.cells) {
-            console.log(`hello`)
-        } else {
-            console.log(`bye`)
-        }
+        // if (this.state.cells) {
+        //     console.log(`hello`)
+        // } else {
+        //     console.log(`bye`)
+        // }
     }
 
     render() {
