@@ -70,6 +70,7 @@ const template = {
     // view.displayMessage("You missed!");
     return false
   },
+  
   isDestroyed: function (rocket) {
     for (let i = 0; i < template.rockets.shipLength; i++) {
       if (template.rockets.detail.hits[i] !== "HIT") {
@@ -119,6 +120,17 @@ const template = {
     } 
     return false
   }
+  isSunk: function(rocket) {
+    // Looping again across the rockets array, to get the length of each rocket
+    for (let i=0; i < this.rockets[i].shipLength; i++) {
+        // Giving the 'hits' property an index. Until the rocket has been hit the amount of times equal to its length, return the rocket as still a valid target to hit.
+        if (rocket.hits[i] !== "hit") {
+            return false;
+        }
+    }
+    // If the ship received hits equal to its length, return that the ship has been sunk.
+    return true;
+}
 }
 
 class Rockets extends Component {
