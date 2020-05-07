@@ -1,72 +1,59 @@
 import React, { Component } from 'react';
 import Rockets from './Rockets'
 
-const cellsArray = [
-    {
-        id: 0,
-        className: "cell",
-    },
-    {
-        id: 1,
-        className: "cell",
-    },
-    {
-        id: 2,
-        className: "cell",
-    },
-    {
-        id: 3,
-        className: "cell",
-    },
-    {
-        id: 4,
-        className: "cell",
-    },
-
-    {
-        id: 5,
-        className: "cell",
-    },
-    {
-        id: 6,
-        className: "cell",
-    },
-    {
-        id: 7,
-        className: "cell",
-    },
-    {
-        id: 8,
-        className: "cell",
-    },
-    {
-        id: 9,
-        className: "cell",
-    }
-]
-
 class GameCells extends Component {
     constructor() {
         super()
         this.state = {
             hit: false,
-            empty: true
+            empty: true,
+            userInput: '',
+            isThereRockets: ['A1','A2','A3'],
         }
     }
 
-    clickFunction = (e) => {
+    // clickFunction = (e) => {
         
-        if (this.state.empty === true) {
-            this.setState({
-                hit: false,
-                empty: true
-            }) 
-            console.log("You miss!") 
-        } else {
-            console.log("Hit!");
-        }
-            
+    //     if (this.state.empty === true) {
+    //         this.setState({
+    //             hit: false
+                
+    //         }) 
+    //         console.log("You miss!") 
+    //     } else if (this.state.empty === false) {
+    //         this.setState({
+    //             hit: true,
+    //             empty: true
+    //         })
+    //         console.log("Hit!");
+    //     }
+    //     console.log(this.state.empty)
+    // }
+
+    handleUserInput = (event) => {
+        this.setState({
+            userInput: event.target.value
+        })
+        console.log(this.state.userInput)
     }
+
+    //compare the input against the string content of the cell. 
+    // 
+    checkHit = (e) => {
+        e.preventDefault();
+
+        console.log(this.state.userInput)
+
+        console.log(e.target)
+        if (this.state.isThereRockets.includes(this.state.userInput)) {
+            console.log('You hit a ship!')
+            
+        } else {
+            console.log('noooooooooooo you suck, never play this game again')
+        }
+        //call clickFunction()
+    }
+
 
     render(){
         
@@ -79,10 +66,11 @@ class GameCells extends Component {
                 <Rockets />
 
                     <div className="messageArea"></div>
+                <form action="#" onSubmit={this.checkHit}>
                     <table>
                         <tbody>
                             <tr>
-                                <td onClick={this.clickFunction} id="1">A1</td>
+                                <td onClick={this.clickFunction} id="A1" data-value='A1'>A1</td>
                                 <td id="2">A2</td>
                                 <td id="3">A3</td>
                                 <td id="4">A4</td>
@@ -146,9 +134,8 @@ class GameCells extends Component {
                             </tr>
                         </tbody>
                     </table>
-                    <form action="#">
-                        <input id="userInput" type="text" placeholder="A1" />
-                        <button id="fireButton">Kill that mothafocka</button>
+                        <input id="userInput" onChange={this.handleUserInput} type="text" placeholder="A1" />
+                        <button id="fireButton" >Kill that mothafocka</button>
                     </form>
                 </div>
 

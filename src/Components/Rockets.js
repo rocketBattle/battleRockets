@@ -53,21 +53,21 @@ const template = {
       let rocket = this.rockets[i];
       let index = rocket.location.indexOf(boomSpot);
       if (rocket.hits[index] === "hit") {
-        view.displayMessage("You've hits this location");
+        // view.displayMessage("You've hits this location");
         return true;
       } else if (index >= 0) {
         rocket.hits[index] = "hit"
-        view.displayHit(boomSpot)
-        view.displayMessage("Hit")
+        // view.displayHit(boomSpot)
+        // view.displayMessage("Hit")
         if (this.isSunk(rocket)) {
-          view.displayMessage("You sunk my battleship")
+          // view.displayMessage("You sunk my battleship")
           this.shipsSunk++;
         }
         return true;
       }
     }
-    view.displayMiss(boomSpot);
-    view.displayMessage("You missed!");
+    // view.displayMiss(boomSpot);
+    // view.displayMessage("You missed!");
     return false
   } 
 }
@@ -75,7 +75,7 @@ const template = {
 class Rockets extends Component {
   
   render() {
-    console.log(template.boom);
+    // console.log(template.boom);
     template.boom()
     return (
       <div>
