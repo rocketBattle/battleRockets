@@ -11,28 +11,32 @@ class GameCells extends Component {
             empty: true,
             // miss: true,
             userInput: '',
-            rocket1Location: ['A1','A2','A3','E2'],
-            rocket2Location: ['B1','D4','H1','E2'],
-            rocket3Location: ['D1','C5','B1','E7'],
-            rocket4Location: ['E1','G2','F3','D7'],
+            // rocket1Location: ['A1','A2','A3','E2'],
+            // rocket2Location: ['B1','D4','H1','E2'],
+            // rocket3Location: ['D1','C5','B1','E7'],
+            // rocket4Location: ['E1','G2','F3','D7'],
             boardSize: 7,
             charArray: ["A", "B", "C", "D", "E", "F", "G"],
             hitClass: '',
-            isThereRockets: ['A1','A2','A3', 'A4']
-            // rocketLocation: {
-            //     rocket1: {
-            //         location: ['A1','A2','A3','E2']
-            //     },
-            //     rocket2: {
-            //         location: ['B1','D4','H1','E2']
-            //     },
-            //     rocket3: {
-            //         location: ['D1','C5','B1','E7']
-            //     },
-            //     rocket4: {
-            //         location: ['E1','G2','F3','D7']
-            //     },
-            // }
+            rocketLocation: [
+                {
+                    name: 'rocket1',
+                    location: ['A1','A2','A3','E2']
+                },
+                {
+                    name: 'rocket2',
+                    location: ['B1','D4','H1']
+                },
+                {
+                    name: 'rocket3',
+                    location: ['D1','C5']
+                },
+                {
+                    name: 'rocket4',
+                    location: ['E1']
+                },
+            ],
+            cellArray: []
         }
     }
 
@@ -66,23 +70,7 @@ class GameCells extends Component {
     //     console.log("rockets");
     //     console.log(this.rockets);
     // }
-    // clickFunction = (e) => {
-        
-    //     if (this.state.empty === true) {
-    //         this.setState({
-    //             hit: false
-                
-    //         }) 
-    //         console.log("You miss!") 
-    //     } else if (this.state.empty === false) {
-    //         this.setState({
-    //             hit: true,
-    //             empty: true
-    //         })
-    //         console.log("Hit!");
-    //     }
-    //     console.log(this.state.empty)
-    // }
+
 
     // Declare classes in CSS to mark what's hit or missed
     // Hard code which items in the cells array have ships
@@ -107,25 +95,37 @@ class GameCells extends Component {
         this.userGuess(this.state.userInput); 
         // console.log(this.state.userInput)
         // console.log(e.target)
-        if (this.state.rocket1Location.includes(this.state.userInput)) {
-            console.log('You hit a ship!') 
-        console.log(this.state.userInput)
+        this.state.rocketLocation.map((setLocation) => {     
+            if (setLocation.location.includes(this.state.userInput)) {
+                console.log('You hit a ship!') 
+                console.log(setLocation.location)
+                // compare rocketHits to the location to determine if a rocket was destroyed 
 
-        console.log(e.target)
-        if (this.state.isThereRockets.includes(this.state.userInput)) {
-            console.log("it works")
-            this.setState({
-                rocketHit: !this.state.rocketHit   
-            });
-        } else {
-            this.setState({
-                blankHit: !this.state.blankHit
-            })
-        }
+                // cells, states: how do we set a default blank state for all of the 49 cells within the array 
+                this.setState({
+                    rocketHit: !this.state.rocketHit   
+                });
+            } else {
+                this.setState({
+                    blankHit: !this.state.blankHit
+                })
+            }
+        }) 
+        
+        // console.log(e.target)
+        // if (this.state.rocketLocation.includes(this.state.userInput)) {
+        //     console.log("it works")
+        //     this.setState({
+        //         rocketHit: !this.state.rocketHit   
+        //     });
+        // } else {
+        //     this.setState({
+        //         blankHit: !this.state.blankHit
+        //     })
+        // }
     }
     
         //call clickFunction()
-    }
     
     changeCellClass = () => {
         this.checkHit() 
