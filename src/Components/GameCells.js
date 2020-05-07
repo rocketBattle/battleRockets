@@ -8,7 +8,26 @@ class GameCells extends Component {
             hit: false,
             empty: true,
             userInput: '',
-            isThereRockets: ['A1','A2','A3'],
+            rocket1Location: [],
+            rocket2Location: [],
+            rocket3Location: [],
+            rocket4Location: [],
+            
+            // thereAreRockets: ['A1','A2','A3','E2'],
+            // rocketLocation: {
+            //     rocket1: {
+            //         location: ['A1','A2','A3','E2']
+            //     },
+            //     rocket2: {
+            //         location: ['A1','A2','A3','E2']
+            //     },
+            //     rocket3: {
+            //         location: ['A1','A2','A3','E2']
+            //     },
+            //     rocket4: {
+            //         location: ['A1','A2','A3','E2']
+            //     },
+            // }
         }
     }
 
@@ -45,23 +64,29 @@ class GameCells extends Component {
         console.log(this.state.userInput)
 
         console.log(e.target)
-        if (this.state.isThereRockets.includes(this.state.userInput)) {
+        if (this.state.rocket1Location.includes(this.state.userInput)) {
             console.log('You hit a ship!')
             
         } else {
             console.log('noooooooooooo you suck, never play this game again')
         }
+
         //call clickFunction()
+
+
+        // GENERATE SHIPS AND PUSH NEW LOCATIONS TO THE STATE 
+        console.log(
+            this.state.rocket1Location, 
+            this.state.rocket2Location, 
+            this.state.rocket3Location, 
+            this.state.rocket4Location
+        )
     }
-
-
+    
+    
     render(){
         
         return (
-            
-
-            
-
             <div className="board">
                 <Rockets />
 
@@ -138,8 +163,6 @@ class GameCells extends Component {
                         <button id="fireButton" >Kill that mothafocka</button>
                     </form>
                 </div>
-
-
         )
     }
 }

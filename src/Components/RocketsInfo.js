@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios'; 
-import { readSync } from 'fs';
 
 class RocketsInfo extends Component {
     constructor(){

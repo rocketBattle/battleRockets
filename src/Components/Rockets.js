@@ -69,7 +69,56 @@ const template = {
     // view.displayMiss(boomSpot);
     // view.displayMessage("You missed!");
     return false
-  } 
+  },
+  isDestroyed: function (rocket) {
+    for (let i = 0; i < template.rockets.shipLength; i++) {
+      if (template.rockets.detail.hits[i] !== "HIT") {
+        return false;
+      }
+    } return true;
+  },
+  generateRocketLocations: function () {
+    let locations;
+    for (let i = 0; i < template.rockets.numShips; i++) {
+      do {
+        locations = this.generateRocket(); 
+      } while (this.collision(locations));
+      this.rockets[i].details.locations = locations;
+    }
+    console.log("rockets");
+    console.log(this.rockets);
+  },
+  generateRocket: function() {
+    let direction = Math.floor(Math.random() * 2); 
+    let row, col; 
+    if (direction === 1) {
+      row = Math.floor(Math.random() * template.boardSize);
+      col = Math.floor(Math.random() * template.boardSize - template.rockets.shipLength + 1);
+    } else {
+      col = Math.floor(Math.random() * template.boardSize);
+      row = Math.floor(Math.random() * template.boardSize - template.rockets.shipLength + 1); 
+    } 
+    let newRocketLocations = [];
+    for (let i = 0; i < template.rockets.shipLength; i++){
+      if (direction === 1) {
+        newRocketLocations.push(row + '' + (col + 1));
+      } else {
+        newRocketLocations.push((row + 1) + '' + col);
+      } 
+    }
+    return newRocketLocations; 
+  },
+  collision: function(locations) {
+    for (let i = 0; i < template.rockets.numShips; i++){
+      let rocket = template.rockets[i]; 
+      for (let j = 0; j < locations.length; j++) {
+        if (rocket.locations.indexOf(locations[j]) >= 0 ) {
+          return true;
+        }
+      }
+    } 
+    return false
+  }
 }
 
 class Rockets extends Component {
