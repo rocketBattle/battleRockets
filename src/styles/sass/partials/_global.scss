@@ -19,6 +19,18 @@ td {
     border: 1px solid green;
 }
 
+.shipHit {
+    background-color: blue;
+}
+
+.blankHit {
+    background-color: orange;
+}
+
+.normal {
+    background-color: white;
+}
+
 // .board {
 //     display: flex;
 //     flex-wrap: wrap;
