@@ -119,7 +119,7 @@ const template = {
       }
     } 
     return false
-  }
+  },
   isSunk: function(rocket) {
     // Looping again across the rockets array, to get the length of each rocket
     for (let i=0; i < this.rockets[i].shipLength; i++) {
