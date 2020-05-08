@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 class LandingPage extends Component {
     render() {
         return (
-            <React.Fragment>
+            <div>
                 <header>
                     <div className="wrapper">
                         <h1>Battle Rockets!</h1>
@@ -43,7 +43,7 @@ class LandingPage extends Component {
                         <h4>Rocket data provided by <a href="https://docs.spacexdata.com/?version=latest">SpaceX Rocket API</a></h4>
                     </div>
                 </footer>
-            </React.Fragment>
+            </div>
         )
     }
 }

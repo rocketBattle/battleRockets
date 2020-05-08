@@ -11,11 +11,11 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
-        <React.Fragment>
+      <Router basename={process.env.PUBLIC_URL}>
+        
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/GameBoard" component={GameBoard} />
-        </React.Fragment>
+      
       </Router>
     )
   }
