@@ -41,7 +41,7 @@ class GameCells extends Component {
                 [   
                     {
                         id: 'A1', 
-                        hasRocket: true,
+                        hasRocket: false,
                         hasRocketbeenHit: false,
                     },
                     {
@@ -72,14 +72,14 @@ class GameCells extends Component {
                     {
                         id: 'A7',
                         hasRocket: false,
-                        hasRocketbeenHit: true,
+                        hasRocketbeenHit: false,
                     },
                 ], 
                 [   
                     {
                         id: 'B1',
                         hasRocket: false,
-                        hasRocketbeenHit: true,
+                        hasRocketbeenHit: false,
                     },
                     {
                         id: 'B2',
@@ -116,7 +116,7 @@ class GameCells extends Component {
                     {
                         id: 'C1',
                         hasRocket: false,
-                            hasRocketbeenHit: false,
+                        hasRocketbeenHit: false,
                     },
                     {
                         id: 'C2',
@@ -136,7 +136,7 @@ class GameCells extends Component {
                     {
                         id: 'C5',
                         hasRocket: false,
-                            hasRocketbeenHit: false,
+                        hasRocketbeenHit: false,
                     },
                     {
                         id: 'C6',
@@ -305,11 +305,11 @@ class GameCells extends Component {
 
 
     // Function to open/close modal
-  toggleModal = () => {
+    toggleModal = () => {
     this.setState(prevState => ({
-      open: !prevState.open
+        open: !prevState.open
     }));
-  };
+    };
     
     
     componentDidMount() {
@@ -339,12 +339,38 @@ class GameCells extends Component {
     // New Generate Rocket Location
     newRocketGenerator = () => {
         const newArray = this.state.rocketLocation.map((rocket) => {
+            // console.log(location.shipLength)
             // generate a random letter from the charArray
-            const randomLetter = this.state.charArray[Math.floor(Math.random() * this.state.charArray.length)];
-            // generate a random number from 1 to 7
-            let randomNumber = Math.floor(Math.random() * 7) + 1;
-            let randomLocation = randomLetter + randomNumber;
-            console.log(randomLocation)
+            this.generatingLocation = () => {
+                const randomLetter = this.state.charArray[Math.floor(Math.random() * this.state.charArray.length)];
+                // generate a random number from 1 to 7
+                let randomNumber = Math.floor(Math.random() * 7) + 1;
+                let randomLocation = randomLetter + randomNumber;
+                rocket.location.push(randomLocation)
+                console.log(randomLocation);
+                return randomLocation
+                
+                // //  if rocket length is 1 > push only one thing into an array
+                // rocket.location.push(randomLocation)
+            }
+
+            if (rocket.shipLength === 2) {
+                this.generatingLocation();
+                this.generatingLocation();
+            } else if (rocket.shipLength === 3) {
+                this.generatingLocation();
+                this.generatingLocation();
+                this.generatingLocation();
+            } else if (rocket.shipLength === 4) {
+                this.generatingLocation();
+                this.generatingLocation();
+                this.generatingLocation();
+                this.generatingLocation();
+            } else {
+                this.generatingLocation();
+            }
+
+            return rocket;
 
             rocket.location.push(randomLocation)
 
@@ -362,6 +388,9 @@ class GameCells extends Component {
             // }
             // return a new object
 
+        })
+        this.setState({
+            rocketLocation: newArray 
         })
         // set the newArray to state
         // we are not taking duplicates into account just yet
@@ -422,7 +451,7 @@ class GameCells extends Component {
     this.setState({
         newRocketLocations: newRocketLocations 
     })
-     }
+    }
 
     // Declare classes in CSS to mark what's hit or missed
     // Hard code which items in the cells array have ships
