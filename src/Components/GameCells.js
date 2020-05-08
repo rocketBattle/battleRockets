@@ -304,6 +304,15 @@ class GameCells extends Component {
         }
     }
 
+
+    // Function to open/close modal
+  toggleModal = () => {
+    this.setState(prevState => ({
+      open: !prevState.open
+    }));
+  };
+    
+    
     // componentDidMount() {
     //     this.generateRocketLocations();
     // }
@@ -498,13 +507,13 @@ class GameCells extends Component {
     //     })
     // }
 
-    toggleModal = () => {    
-        this.setState(prevState =>({    
-            open: !prevState.open   
-        }));     
-    };
 
     render() {
+
+  // Modal constants
+  const { open } = this.state;
+  const { toggleModal } = this;
+
         return (
             <div className="board">
                 {open && <Modal toggleModal={toggleModal} />}
@@ -554,7 +563,7 @@ class GameCells extends Component {
                     type="text"
                     placeholder="A1"
                 />
-                <button onClick={this.toggleModal} id="fireButton">Kill that mothafocka</button>
+                <button onClick={toggleModal} id="fireButton">Kill that mothafocka</button>
                 </form>
             </div>
         )
