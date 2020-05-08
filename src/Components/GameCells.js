@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Rockets from './Rockets';
+import Modal from './Modal';
+import { Link } from 'react-router-dom';
 // import Cell from './Cell'
 
 class GameCells extends Component {
@@ -7,11 +9,8 @@ class GameCells extends Component {
         super()
         this.state = {
             empty: true,
+            open: false,
             userInput: '',
-            // rocket1Location: ['A1','A2','A3','E2'],
-            // rocket2Location: ['B1','D4','H1','E2'],
-            // rocket3Location: ['D1','C5','B1','E7'],
-            // rocket4Location: ['E1','G2','F3','D7'],
             boardSize: 7,
             charArray: ["A", "B", "C", "D", "E", "F", "G"],
             hitClass: '',
@@ -19,25 +18,26 @@ class GameCells extends Component {
                 {
                     name: 'rocket1',
                     shipLength: 1,
-                    location: ['A1']
+                    location: ['A5']
 
                 },
                 {
                     name: 'rocket2',
                     shipLength: 2,
-                    location: ['B4']
+                    location: ['', '']
                 },
                 {
                     name: 'rocket3',
                     shipLength: 3,
-                    location: ['E7']
+                    location: ['', '', '']
                 },
                 {
                     name: 'rocket4',
                     shipLength: 4,
-                    location: ['G2']
+                    location: ['', '', '', '']
                 },
             ],
+            hasRocketBeenHit: false,
             cellArray: [
                 [   
                     {
@@ -75,7 +75,8 @@ class GameCells extends Component {
                         hasRocket: false,
                         hasRocketbeenHit: true,
                     },
-                ], [   
+                ], 
+                [   
                     {
                         id: 'B1',
                         hasRocket: false,
@@ -111,7 +112,8 @@ class GameCells extends Component {
                         hasRocket: false,
                         hasRocketbeenHit: false,
                     },
-                ], [   
+                ], 
+                [   
                     {
                         id: 'C1',
                         hasRocket: false,
@@ -147,7 +149,8 @@ class GameCells extends Component {
                         hasRocket: false,
                         hasRocketbeenHit: false,
                     },
-                ], [
+                ], 
+                [
                     {
                         id: 'D1',
                         hasRocket: false,
@@ -183,7 +186,8 @@ class GameCells extends Component {
                         hasRocket: false,
                         hasRocketbeenHit: false,
                     },
-                ], [
+                ], 
+                [
                     {
                         id: 'E1',
                         hasRocket: false,
@@ -219,7 +223,8 @@ class GameCells extends Component {
                         hasRocket: false,
                         hasRocketbeenHit: false,
                     },
-                ], [   
+                ], 
+                [   
                     {
                         id: 'F1',
                         hasRocket: false,
@@ -255,7 +260,8 @@ class GameCells extends Component {
                         hasRocket: false,
                         hasRocketbeenHit: false,
                     },
-                ], [
+                ], 
+                [
                     {
                         id: 'G1',
                         hasRocket: false,
@@ -298,14 +304,11 @@ class GameCells extends Component {
         }
     }
 
-    // componentDidMount(){
+    // componentDidMount() {
     //     this.generateRocketLocations();
     // }
 
-
     // userGuess function called when user submits in the input.
-
-
     userGuess = (guess) => {
         if (guess === null || guess.length !== 2) {
             alert('need a valid guess please');
@@ -325,13 +328,7 @@ class GameCells extends Component {
         return null;
     }
 
-
-
     // Generate Rocket Location
-
-
-
-
     // generateRocketLocations = () => {
     //     let locations;
     //     for (let i = 0; i < this.state.numRockets; i++) {
@@ -341,49 +338,51 @@ class GameCells extends Component {
     //         this.state.rocketLocation[i].location = locations;
     //     }
     //     console.log("rockets");
-    //     console.log(this.rocketsLocation);
+    //     console.log(this.state.rocketLocation.location);
     // }
 
+    // collision = (locations) => {
+    //     for (let i = 0; i < this.state.numRockets; i++){
+    //         let rocket = this.state.numRockets[i]; 
+    //         for (let j = 0; j < 4; j++) {
+    //             if (this.state.rocketLocation[j].indexOf(this.state.newRocketLocations[j]) >= 0 ) {
+    //                 return true;
+    //             }
+    //     }
+    // } 
+    //     return false
+    // }
 
-
-
-
-
-    // generate rocket randomly onto the gameboard 
-
-
-
-    generateRocket = () => {
-    let direction = Math.floor(Math.random() * 2); 
-    let row, col; 
-    let newRocketLocations = [...this.state.newRocketLocations];
-    this.state.rocketLocation.map((shipz)=>{
+    // generate rocket randomly onto the gameboard
+//     generateRocket = () => {
+//     let direction = Math.floor(Math.random() * 2); 
+//     let row, col; 
+//     let newRocketLocations = [...this.state.newRocketLocations];
+//     this.state.rocketLocation.map((shipz)=>{
         
-        if (direction === 1) {
-          row = Math.floor(Math.random() * this.state.boardSize);
-          col = Math.floor(Math.random() * this.state.boardSize - shipz.shipLength + 1);
-        } else {
-          col = Math.floor(Math.random() * this.state.boardSize);
-          row = Math.floor(Math.random() * this.state.boardSize - shipz.shipLength + 1); 
-        } 
+//         if (direction === 1) {
+//             row = Math.floor(Math.random() * this.state.boardSize);
+//             col = Math.floor(Math.random() * this.state.boardSize - shipz.shipLength + 1);
+//         } else {
+//             col = Math.floor(Math.random() * this.state.boardSize);
+//             row = Math.floor(Math.random() * this.state.boardSize - shipz.shipLength + 1); 
+//         } 
 
-        for (let i = 0; i < shipz.shipLength; i++){
-            console.log('hi')
-            // if (direction === 1) {
-            //     newRocketLocations.push( row + '' + (col + 1) )
-            // // newRocketLocations.push(row + '' + (col + 1));
-            // } else {
-            // // newRocketLocations.push((row + 1) + '' + col);
-            // } 
-        }
-        // return newRocketLocations; 
-    })
-    this.setState({
-        newRocketLocations: newRocketLocations 
-    })
-}
-
-
+//         for (let i = 0; i < shipz.shipLength; i++){
+//             console.log('hi')
+//             if (direction === 1) {
+//                 newRocketLocations.push( row + '' + (col + 1) )
+//             // newRocketLocations.push(row + '' + (col + 1));
+//             } else {
+//                 newRocketLocations.push((row + 1) + '' + col);
+//             } 
+//         }
+//         return newRocketLocations; 
+//     })
+//     this.setState({
+//         newRocketLocations: newRocketLocations 
+//     })
+// }
 
     // Declare classes in CSS to mark what's hit or missed
     // Hard code which items in the cells array have ships
@@ -401,8 +400,6 @@ class GameCells extends Component {
         })
     }
 
-
-
     callFunction = (cell) => {
         // console.log(cell)
         if (cell.hasRocketbeenHit === true) {
@@ -413,31 +410,52 @@ class GameCells extends Component {
         }
     }
 
-
     //compare the input against the string content of the cell. 
-    
     checkHit = (e) => {
         e.preventDefault();
         this.userGuess(this.state.userInput); 
         // console.log(this.state.userInput)
         // console.log(e.target)
         this.state.rocketLocation.map((setLocation) => {     
+            console.log(setLocation)
             if (setLocation.location.includes(this.state.userInput)) {
-                this.state.cellArray.map((cellz)=>{
-                    return(
-                        cellz.map((cell) => {
-                            // console.log(cell)
-                            if (this.state.userInput === cell.id) {
-                                
-                                // this is where we change state to true, which should change the color of the item.
-                            } 
+
+                this.state.cellArray.map((cells) => {
+                    // QUESTION: HOW TO ACCESS A PROPERTY ON EACH INDIVIDUAL CELL
+                    cells.forEach(cell => {
+                        console.log(cell)
+                        // let newArray = [...this.state.cellArray[0]];
+                        // console.log(newArray)
+                        this.setState({
+                            hasRocketbeenHit: true
                         })
-                    )
+                    });
                 })
+                // this.state.cellArray.map((cellz, key)=>{
+                //     // console.log(cellz, key)
+                //     return(
+                //         cellz.map((cell) => {
+                //             if (this.state.userInput === cell.id) {
+                //                     // genreIndex = 0;
+                //                     // songIndex = 0;
+                //                     // e.target.name = title;
+                //                     // e.target.value = "Child in time"  
+                //                     this.setState((prevState, index, index2) => {
+                //                     let temp = {
+                //                         ...prevState,
+                //                         cellArray: [...prevState.cellArray]
+                //                     }
+                //                       // change title "Soldier of fortune" to "Child in time"
+                //                     temp.cellArray[index].index2.hasRocketbeenHit = true
+                //                     return temp
+                //                     })
+                //                 // this is where we change state to true, which should change the color of the item.
+                //             } 
+                //         })
+                //     )
+                // })
                 console.log('You hit a ship!') 
                 // compare rocketHits to the location to determine if a rocket was destroyed 
-
-                // cells, states: how do we set a default blank state for all of the 49 cells within the array 
                 this.setState({
                     rocketHit: !this.state.rocketHit   
                 });
@@ -473,12 +491,23 @@ class GameCells extends Component {
         }
     }
 
+    // handleFireButton = (e) => {
+    //     e.preventDefault();
+    //     this.setState({
+    //         open: !this.state.open
+    //     })
+    // }
 
-
+    toggleModal = () => {    
+        this.setState(prevState =>({    
+            open: !prevState.open   
+        }));     
+    };
 
     render() {
         return (
             <div className="board">
+                {open && <Modal toggleModal={toggleModal} />}
                 <Rockets />
 
                 <div className="messageArea"></div>
@@ -525,7 +554,7 @@ class GameCells extends Component {
                     type="text"
                     placeholder="A1"
                 />
-                <button id="fireButton">Kill that mothafocka</button>
+                <button onClick={this.toggleModal} id="fireButton">Kill that mothafocka</button>
                 </form>
             </div>
         )
