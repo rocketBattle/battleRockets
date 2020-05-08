@@ -372,6 +372,10 @@ class GameCells extends Component {
 
             return rocket;
 
+            rocket.location.push(randomLocation)
+
+            // get the length of each rocket
+
             // sort method > numerically and alphabetically
 
             // generate more sequational numbers and letters based on ship length
