@@ -338,13 +338,17 @@ class GameCells extends Component {
 
     // New Generate Rocket Location
     newRocketGenerator = () => {
-        const newArray = this.state.rocketLocation.map(() => {
+        const newArray = this.state.rocketLocation.map((rocket) => {
             // generate a random letter from the charArray
             const randomLetter = this.state.charArray[Math.floor(Math.random() * this.state.charArray.length)];
             // generate a random number from 1 to 7
             let randomNumber = Math.floor(Math.random() * 7) + 1;
             let randomLocation = randomLetter + randomNumber;
             console.log(randomLocation)
+
+            rocket.location.push(randomLocation)
+
+            // get the length of each rocket
 
             // sort method > numerically and alphabetically
 
