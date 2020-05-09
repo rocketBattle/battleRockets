@@ -352,6 +352,7 @@ class GameCells extends Component {
     // New Generate Rocket Location
     generateRocketLocations = () => {
         const newArray = this.state.rocketLocation.map((rocket) => {
+
             // console.log(rocket)
             this.generateRocketLocationz = () => {
                     
@@ -395,8 +396,69 @@ class GameCells extends Component {
         // // we are not taking duplicates into account just yet
         return console.log(newArray)
     }
+        // set the newArray to state
+        // we are not taking duplicates into account just yet
+        return newArray
+    }  
 
+                // console.log(ship);
 
+                // const letters = ["A", "B", "C", "D", "E", "F", "G"];
+                // const numbers = [1,2,3,4,5,6,7];
+                // const usedCombinations = [];
+
+                // const shipCoordinate = () => {
+                // const letterPosition = Math.floor(Math.random() * 7);
+                // const numberPosition = Math.floor(Math.random() * 7);
+                
+                // return {
+                    
+                // }
+                // }
+
+                // // const ship = [];
+                // // const shipLength = 4;
+
+                // const shipData = shipCoordinate();
+
+                // for (let i = 1; i < rocket.shipLength; i ++) {
+                // rocket.location.push(`${shipData.letter}${shipData.number + i}`)
+                // // usedCombinations.push = [`${shipData.letter}${shipData.number + i}`]
+                // }
+
+                // console.log(rocket);
+
+                // // generate a random letter from the charArray
+                // const randomLetter = this.state.charArray[Math.floor(Math.random() * this.state.charArray.length)];
+
+                // // generate a random number from 1 to 7
+                // let randomNumber = Math.floor(Math.random() * 7) + 1;
+                // // concatenate the two variable together to make 1 location.
+                // let randomLocation = randomLetter + randomNumber;
+                // rocket.location.push(randomLocation);
+
+                // // If there are matching numbers in the array, change it?!
+                // if (randomLocation.includes(rocket.location[0, 1, 2, 3])) {
+                //     console.log(`oh SHIT`);
+                // }
+
+                // ERROR HANDLING: TRY TO PREVENT THE SAME LOCATION TO GENERATE 
+                // const ranNums = []
+                // let i = rocket.shipLength
+                // let j = 0;
+
+                // while (i--) {
+                //     j = Math.floor(Math.random() * (i+1));
+                //     ranNums.push(rocket[j]);
+                //     rocket.location.splice(j, 1);
+                // }
+                // console.log(ranNums)
+
+                
+                // console.log(randomLocation);
+                // return randomLocation
+
+            // if statement that checks how many locations to add into the rocketsLocation array.
                 // // generate a random letter from the charArray
                 // const randomLetter = this.state.charArray[Math.floor(Math.random() * this.state.charArray.length)];
                 // // generate a random number from 1 to 7
@@ -522,9 +584,6 @@ class GameCells extends Component {
         //     )
         // })
     }
-
-
-
 
     // destructing cellarray to use as a props for modal.js
     // cellArrayz = { this.state.cellArray }
