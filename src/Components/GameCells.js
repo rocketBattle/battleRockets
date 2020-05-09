@@ -16,23 +16,23 @@ class GameCells extends Component {
             hitClass: '',
             rocketLocation: [
                 {
-                    name: 'rocket1',
+                    id: 'falcon1',
                     shipLength: 1,
                     location: []
 
                 },
                 {
-                    name: 'rocket2',
+                    id: 'falcon9',
                     shipLength: 2,
                     location: []
                 },
                 {
-                    name: 'rocket3',
+                    id: 'falconheavy',
                     shipLength: 3,
                     location: []
                 },
                 {
-                    name: 'rocket4',
+                    id: 'starship',
                     shipLength: 4,
                     location: []
                 },

@@ -46,7 +46,7 @@ export default class Modal extends React.Component {
               <button ref={this.button} className="closeModal" aria-label="close form" onClick={toggleModal} tabIndex="0">  
               &times;
               </button>
-              <UserMessage isHitTrue={false}/>
+              <UserMessage isHitTrue={true}/>
               {/* <p>You hit Falcon1</p>
               <p>Miss!</p> */}
 
