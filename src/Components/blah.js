@@ -62,15 +62,29 @@ for (let i = 0; i < shipLength; i++) {
 
 
 
-   // generate a random letter from the charArray
-   const randomLetter = this.state.charArray[Math.floor(Math.random() * this.state.charArray.length)];
-   // generate a random number from 1 to 7
-   let randomNumber = Math.floor(Math.random() * 7) + 1;
-   // concatenate the two variable together to make 1 location.
-   let randomLocation = randomLetter + randomNumber;
-   rocket.location.push(randomLocation);
+         // generate a random letter from the charArray
+         const randomLetter = this.state.charArray[Math.floor(Math.random() * this.state.charArray.length)];
+         // generate a random number from 1 to 7
+         let randomNumber = Math.floor(Math.random() * 7) + 1;
+         // concatenate the two variable together to make 1 location.
+         let randomLocation = randomLetter + randomNumber;
+         rocket.location.push(randomLocation);
 
-   // If there are matching numbers in the array, change it?!
-   if (randomLocation.includes(rocket.location[0, 1, 2, 3])) {
-      console.log(`oh SHIT`);
+         // If there are matching numbers in the array, change it?!
+         if (randomLocation.includes(rocket.location[0, 1, 2, 3])) {
+            console.log(`oh SHIT`);
+         }
+
+var array = ['A', 'B', 'C']; // Test
+var search_term = 'B';
+
+for (var i = array.length - 1; i >= 0; i--) {
+   if (array[i] === search_term) {
+      array.splice(i, 1);
+      // break;       //<-- Uncomment  if only the first term has to be removed
+   }
+
+   var index = array.indexOf(search_term);    // <-- Not supported in <IE9
+   if (index !== -1) {
+      array.splice(index, 1);
    }
