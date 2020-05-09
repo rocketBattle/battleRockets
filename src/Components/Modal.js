@@ -3,8 +3,8 @@ import UserMessage from './UserMessage'
 
 export default class Modal extends React.Component {
 
-  constructor() {
-      super();
+  constructor(props) {
+      super(props);
       // Create ref to allow "close" button to be focused on when modal opens.
       this.button = React.createRef();
   }
@@ -46,10 +46,8 @@ export default class Modal extends React.Component {
               <button ref={this.button} className="closeModal" aria-label="close form" onClick={toggleModal} tabIndex="0">  
               &times;
               </button>
-              <UserMessage isHitTrue={true}/>
-              {/* <p>You hit Falcon1</p>
-              <p>Miss!</p> */}
-
+              <UserMessage isHitTrue={this.props.isHitTrue}/>
+              //NET PLAYER BUTTON
             </div>
             <div className="modalOverlay" onClick={toggleModal}></div>
         </React.Fragment>

@@ -41,7 +41,6 @@ class YouHitARocket extends Component {
                 return (
 
                     result.map((finalRocket) => {
-                        console.log(finalRocket.rocket_id);
                         if (finalRocket.rocket_id === 'falcon1') {
                         return (
 

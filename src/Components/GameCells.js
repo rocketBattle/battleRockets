@@ -427,7 +427,7 @@ class GameCells extends Component {
     // sets the userInput into state for later use
     handleUserInput = (event) => {
         this.setState({
-            userInput: event.target.value
+            userInput: event.target.value.toUpperCase()
         })
     }
 
@@ -483,6 +483,23 @@ class GameCells extends Component {
         console.log(this.state.userHits)
     }
     
+    didWeGetAHitYet = () => {
+        // this.state.cellArray.map((cellz) => {
+        //     return (
+        //         cellz.map((cell) => {
+        //             // if userinput matches cell.id then change the hasRocket state to true
+        //             if (cell.hasRocketbeenHit === true) {
+        //                 console.log(cell.hasRocketbeenHit)
+        //                 return true;
+        //             } else if (cell.hasRocketbeenHit === false) {
+        //                 console.log(cell.hasRocketbeenHit)
+        //                 return false;
+        //             }
+
+        //         })
+        //     )
+        // })
+    }
     
     // ------ DO WE NEED THIS GUYS?! -------
     
@@ -520,7 +537,18 @@ class GameCells extends Component {
 
         return (
             <div className="board">
-                {open && <Modal toggleModal={toggleModal} />}
+                {
+                    this.state.cellArray.map((cellz) => {
+                        return (
+                            cellz.map((cell) => {
+                                // if userinput matches cell.id then change the hasRocket state to true
+                                return (
+                                    open && <Modal isHitTrue={cell.hasRocketbeenHit} toggleModal={toggleModal} /> 
+                                )
+                            })
+                        )
+                    })
+                }
                 <Rockets />
 
                 <div className="messageArea"></div>
@@ -528,12 +556,9 @@ class GameCells extends Component {
                 <table>
                     <tbody>
                         {this.state.cellArray.map((tr)=>{
-                            // console.log(tr)
-                            return(
-                                
+                            return(                                
                                     <tr>
                                         {tr.map((td)=>{
-                                            // console.log(td)
                                             return(
 
                                                 <td className={this.callFunction(td)}>{td.id}</td>
@@ -551,6 +576,7 @@ class GameCells extends Component {
                     type="text"
                     placeholder="A1"
                     required
+                    
                 />
                 <button onClick={toggleModal} id="fireButton">Kill that mothafocka</button>
                 </form>
