@@ -88,3 +88,9 @@ for (var i = array.length - 1; i >= 0; i--) {
    if (index !== -1) {
       array.splice(index, 1);
    }
+                    // for (let i = letters.length - 1; i >= 0; i--) {
+                    //     if(letters[i] === shipData.letter) {
+                    //         letters.splice(i, 1)
+                    //         console.log(letters)
+                    //     }
+                    // }
