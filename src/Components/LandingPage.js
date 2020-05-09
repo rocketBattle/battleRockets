@@ -8,39 +8,45 @@ class LandingPage extends Component {
                 <header>
                     <div className="wrapper">
                         <h1>Battle Rockets!</h1>
-                        <h3>Destroy enemy's rockets before they boom yours!</h3>
+                        <h3><span className="fatText">Destroy</span> enemy's rockets before they <span className="fatText">boom</span> yours!</h3>
                     </div>
                 </header>
                 <main>
                     <div className="wrapper">
                         <h2>How to play</h2>
-                        <ol>
+                        <ul>
                             <li>
-                                <p>Start by placing rockets on the board</p>
+                                <p>Rockets are randomly generated for you and your opponent.</p>
                             </li>
                             <li>
-                                <p>Pass the device to another player to do the same</p>
+                                <p>Your main goal is to <span className="fatText">boom</span> your opponent's rockets by guessing where they are hidden on the board, one square at a time! </p>
                             </li>
                             <li>
-                                <p>Try to hit and boom your opponent's rockets by guessing where they are hidden on the board, one square at a time</p>
+                                <p>With every rocket you hit, you get some cool info about SpaceX rockets!</p>
                             </li>
                             <li>
-                                <p>The person who booms 10 rockets wins!</p>
+                                <p>The person who <span className="fatText">booms</span> 10 rockets wins!</p>
                             </li>
-                        </ol>                            
+                        </ul>                            
                         
-                        <Link to="GameBoard">enter the battle!</Link>
+                        <Link className="enterBattle" to="GameBoard">enter the battle!</Link>
 
                     </div>
                 </main>
                 <footer>
                     <div className="wrapper">
-                        <h4>Built by:</h4>
-                        <a href="portfolio.com">Alisa Kitkina</a>
-                        <a href="portfolio.com">Mariya Morosovska</a>
-                        <a href="portfolio.com">Miguel Cabrera</a>
-                        <a href="https://lucassilbernagel.com/">Lucas Silbernagel</a>
-                        <h4>Rocket data provided by <a href="https://docs.spacexdata.com/?version=latest">SpaceX Rocket API</a></h4>
+                        <div className="footerContent">
+                            <div className="creators">
+                                <h4>Built by:</h4>
+                                <a href="portfolio.com">Alisa Kitkina</a>
+                                <a href="portfolio.com">Mariya Morosovska</a>
+                                <a href="portfolio.com">Miguel Cabrera</a>
+                                <a href="https://lucassilbernagel.com/">Lucas Silbernagel</a>
+                            </div>
+                            <div className="credits">
+                                <h4>Rocket data provided by <a href="https://docs.spacexdata.com/?version=latest">SpaceX Rocket API</a></h4>
+                            </div>
+                        </div>
                     </div>
                 </footer>
             </div>

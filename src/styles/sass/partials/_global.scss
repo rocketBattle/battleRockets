@@ -1,5 +1,66 @@
+body {
+    font-size: 62.5%;
+    min-height: 100vh;
+    background-color: $backgroundColor;
+}
+
 .wrapper {
     margin: 0 auto;
+    max-width: 1280px;
+    width: 70%;
+}
+
+h1, h2, h4 {
+    font-family: $headingFont;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 8rem;
+    letter-spacing: 8px;
+    text-shadow: 8px 6px $accentColor;
+}
+
+h3 {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+}
+
+h2 {
+    letter-spacing: 5px;
+    font-size: 4rem;
+    text-shadow: 4px 4px $accentColor;
+}
+
+h4 {
+    letter-spacing: 3px;
+    font-size: 1.9rem;
+}
+
+h3, p, a, li {
+    font-family: $contentFont;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    letter-spacing: 1.3px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    letter-spacing: 1.3px;
+}
+
+li {
+    list-style: none;
+}
+
+.fatText {
+    font-weight: 900;
 }
 
 .board {
