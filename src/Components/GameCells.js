@@ -352,20 +352,104 @@ class GameCells extends Component {
     // New Generate Rocket Location
     generateRocketLocations = () => {
         const newArray = this.state.rocketLocation.map((rocket) => {
+            
             // console.log(location.shipLength)
-            this.generateRocketLocations = () => {
-                // generate a random letter from the charArray
-                const randomLetter = this.state.charArray[Math.floor(Math.random() * this.state.charArray.length)];
-                // generate a random number from 1 to 7
-                let randomNumber = Math.floor(Math.random() * 7) + 1;
-                // concatenate the two variable together to make 1 location.
-                let randomLocation = randomLetter + randomNumber;
-                rocket.location.push(randomLocation);
+            this.generateRocketLocations = (rocket) => {
+                return (
+                    rocket.map((finalLocation) => {
+                        const letters = ["A", "B", "C", "D", "E", "F", "G"];
+                        const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+                        const usedCombinations = [];
+                        // const letter = letters[letterPosition]
+                        // const number = numbers[numberPosition]
+                        const shipCoordinate = () => {
+                            const letterPosition = Math.floor(Math.random() * 7);
+                            const numberPosition = Math.floor(Math.random() * 8);
+                            const ship = [];
+                            const shipLength = 4;
 
-                // If there are matching numbers in the array, change it?!
-                if (randomLocation.includes(rocket.location[0, 1, 2, 3])) {
-                    console.log(`oh SHIT`);
-                }
+                            const shipData = shipCoordinate();
+
+                            for (let i = 0; i < rocket.shipLength; i++) {
+                                ship.push(`${shipData.letter}${shipData.number + i}`)
+                                finalLocation.location = ship
+                            } return finalLocation
+                            // this.setState({
+                            //     rocketLocation: newArray
+                            // })
+                        }
+                    }
+                    ))
+            }
+            if (rocket.shipLength === 1) {
+                for (let i = 0; i < 1; i++) this.generateRocketLocations(i);
+            } else if (rocket.shipLength === 2) {
+                for (let i = 0; i < 2; i++) this.generateRocketLocations(i);
+            } else if (rocket.shipLength === 3) {
+                for (let i = 0; i < 3; i++) this.generateRocketLocations(i);
+            } else {
+                for (let i = 0; i < 4; i++) this.generateRocketLocations(i);
+            }
+            return rocket
+        
+        })
+        this.setState({
+            rocketLocation: newArray
+        })
+        // set the newArray to state
+        // we are not taking duplicates into account just yet
+        return newArray
+    }  
+
+                // console.log(ship);
+
+
+
+
+                // const letters = ["A", "B", "C", "D", "E", "F", "G"];
+                // const numbers = [1,2,3,4,5,6,7];
+                // const usedCombinations = [];
+
+                // const shipCoordinate = () => {
+                // const letterPosition = Math.floor(Math.random() * 7);
+                // const numberPosition = Math.floor(Math.random() * 7);
+                
+                // return {
+                    
+                // }
+                // }
+
+                // // const ship = [];
+                // // const shipLength = 4;
+
+                // const shipData = shipCoordinate();
+
+                // for (let i = 1; i < rocket.shipLength; i ++) {
+                // rocket.location.push(`${shipData.letter}${shipData.number + i}`)
+                // // usedCombinations.push = [`${shipData.letter}${shipData.number + i}`]
+                // }
+
+                // console.log(rocket);
+
+
+
+
+
+
+
+                // // generate a random letter from the charArray
+                // const randomLetter = this.state.charArray[Math.floor(Math.random() * this.state.charArray.length)];
+
+                // // generate a random number from 1 to 7
+                // let randomNumber = Math.floor(Math.random() * 7) + 1;
+                // // concatenate the two variable together to make 1 location.
+                // let randomLocation = randomLetter + randomNumber;
+                // rocket.location.push(randomLocation);
+
+                // // If there are matching numbers in the array, change it?!
+                // if (randomLocation.includes(rocket.location[0, 1, 2, 3])) {
+                //     console.log(`oh SHIT`);
+                // }
 
                 // ERROR HANDLING: TRY TO PREVENT THE SAME LOCATION TO GENERATE 
                 // const ranNums = []
@@ -378,29 +462,13 @@ class GameCells extends Component {
                 //     rocket.location.splice(j, 1);
                 // }
                 // console.log(ranNums)
-                console.log(randomLocation);
-                return randomLocation
-            }
+
+                
+                // console.log(randomLocation);
+                // return randomLocation
 
             // if statement that checks how many locations to add into the rocketsLocation array.
-            if (rocket.shipLength === 1) {
-                for (let i = 0; i < 1; i++) this.generateRocketLocations(i);
-            } else if (rocket.shipLength === 2) {
-                for (let i = 0; i < 2; i++) this.generateRocketLocations(i);
-            } else if (rocket.shipLength === 3) {
-                for (let i = 0; i < 3; i++) this.generateRocketLocations(i);
-            } else {
-                for (let i = 0; i < 4; i++) this.generateRocketLocations(i);
-            }
-            return rocket;
-        })
-        this.setState({
-            rocketLocation: newArray
-        })
-        // set the newArray to state
-        // we are not taking duplicates into account just yet
-        return newArray
-    }
+            
 
 
     // collision = (locations) => {
@@ -501,26 +569,7 @@ class GameCells extends Component {
         // })
     }
     
-    // ------ DO WE NEED THIS GUYS?! -------
-    
-    // changeCellClass = () => {
-    //     this.checkHit() 
-    //     if (this.state.empty === false) {
-    //         this.setState({
-    //             hit: !this.state.hit
-    //         });
-    //         console.log(this.state.hit);
-    //     }
-    // }
 
-    // handleFireButton = (e) => {
-    //     e.preventDefault();
-    //     this.setState({
-    //         open: !this.state.open
-    //     })
-    // }
-
-    // ------------------------------------
 
 
 
