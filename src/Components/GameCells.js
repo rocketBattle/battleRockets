@@ -372,7 +372,7 @@ class GameCells extends Component {
 
             return rocket;
 
-            rocket.location.push(randomLocation)
+            //rocket.location.push(randomLocation)
 
             // get the length of each rocket
 
