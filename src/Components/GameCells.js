@@ -299,22 +299,37 @@ class GameCells extends Component {
                 ],
             ],
             newRocketLocations: [],
-            numRockets: 4
+            numRockets: 4,
+            totalHits: 9,
+            userHits: 0
         }
     }
 
+    // lifecycle that is called once, starts off the app.
+    componentDidMount() {
+        this.generateRocketLocations();
+    }
 
     // Function to open/close modal
+
     toggleModal = () => {
-    this.setState(prevState => ({
-        open: !prevState.open
-    }));
+        // if userInput === cell.id then change the value of cell.hasRockets
+        this.state.cellArray.map((cellz) => {
+
+            return (
+                cellz.map((cell) => {
+                    // if userinput matches cell.id then change the hasRocket state to true
+                    if (this.state.userInput === cell.id) {
+                        cell.hasRocket = true;
+                    }
+                })
+            )
+        })
+        this.setState(prevState => ({
+            open: !prevState.open
+        }));
     };
-    
-    
-    componentDidMount() {
-        this.newRocketGenerator();
-    }
+
 
     // userGuess function called when user submits in the input.
     userGuess = (guess) => {
@@ -324,11 +339,9 @@ class GameCells extends Component {
             let firstChar = guess.charAt(0);
             let letter = this.state.charArray.indexOf(firstChar);
             let number = guess.charAt(1); 
-
-            if (isNaN(letter) || isNaN(number)) {
+            // if letter or number is not a number, letters are too long/short then alert user for incorrect use. 
+            if (isNaN(letter) || isNaN(number)|| letter < 0 || letter >= this.state.boardSize || number < 0 || number >= this.state.boardSize) {
                 alert(`not valid input`)
-            } else if (letter < 0 || letter >= this.state.boardSize || number < 0 || number >= this.state.boardSize) {
-                alert(`input not on the board`)
             } else {
                 return letter + number; 
             }
@@ -337,214 +350,151 @@ class GameCells extends Component {
     }
 
     // New Generate Rocket Location
-    newRocketGenerator = () => {
+    generateRocketLocations = () => {
         const newArray = this.state.rocketLocation.map((rocket) => {
             // console.log(location.shipLength)
-            // generate a random letter from the charArray
-            this.generatingLocation = () => {
+            this.generateRocketLocations = () => {
+                // generate a random letter from the charArray
                 const randomLetter = this.state.charArray[Math.floor(Math.random() * this.state.charArray.length)];
                 // generate a random number from 1 to 7
                 let randomNumber = Math.floor(Math.random() * 7) + 1;
+                // concatenate the two variable together to make 1 location.
                 let randomLocation = randomLetter + randomNumber;
-                rocket.location.push(randomLocation)
+                rocket.location.push(randomLocation);
+
+                // If there are matching numbers in the array, change it?!
+                if (randomLocation.includes(rocket.location[0, 1, 2, 3])) {
+                    console.log(`oh SHIT`);
+                }
+
+                // ERROR HANDLING: TRY TO PREVENT THE SAME LOCATION TO GENERATE 
+                // const ranNums = []
+                // let i = rocket.shipLength
+                // let j = 0;
+
+                // while (i--) {
+                //     j = Math.floor(Math.random() * (i+1));
+                //     ranNums.push(rocket[j]);
+                //     rocket.location.splice(j, 1);
+                // }
+                // console.log(ranNums)
                 console.log(randomLocation);
                 return randomLocation
-                
-                // //  if rocket length is 1 > push only one thing into an array
-                // rocket.location.push(randomLocation)
             }
 
-            if (rocket.shipLength === 2) {
-                this.generatingLocation();
-                this.generatingLocation();
+            // if statement that checks how many locations to add into the rocketsLocation array.
+            if (rocket.shipLength === 1) {
+                for (let i = 0; i < 1; i++) this.generateRocketLocations(i);
+            } else if (rocket.shipLength === 2) {
+                for (let i = 0; i < 2; i++) this.generateRocketLocations(i);
             } else if (rocket.shipLength === 3) {
-                this.generatingLocation();
-                this.generatingLocation();
-                this.generatingLocation();
-            } else if (rocket.shipLength === 4) {
-                this.generatingLocation();
-                this.generatingLocation();
-                this.generatingLocation();
-                this.generatingLocation();
+                for (let i = 0; i < 3; i++) this.generateRocketLocations(i);
             } else {
-                this.generatingLocation();
+                for (let i = 0; i < 4; i++) this.generateRocketLocations(i);
             }
-
             return rocket;
-
-            //rocket.location.push(randomLocation)
-
-            // get the length of each rocket
-
-            // sort method > numerically and alphabetically
-
-            // generate more sequational numbers and letters based on ship length
-            // function sequence (min, max) {
-            //     const newSequenceArray = [];
-            //     for (var i = 0; i < 3; i++) {
-            //         n.push(Math.floor(Math.random() * max) + min);
-            //     }
-            //     return n;
-            // }
-            // return a new object
-
         })
         this.setState({
-            rocketLocation: newArray 
+            rocketLocation: newArray
         })
         // set the newArray to state
         // we are not taking duplicates into account just yet
-        return newArray;
+        return newArray
     }
 
-    // Generate Rocket Location
-    generateRocketLocations = () => {
-        let locations;
-        for (let i = 0; i < this.state.numRockets; i++) {
-            do {
-            locations = this.generateRocket(); 
-            } while (this.collision(locations));
-            this.state.rocketLocation[i].location = locations;
-        }
-        console.log("rockets");
-        console.log(locations);
-    }
 
-    collision = (locations) => {
-        for (let i = 0; i < this.state.numRockets; i++){
-            let rocket = this.state.numRockets[i]; 
-            for (let j = 0; j < 4; j++) {
-                if (this.state.rocketLocation[j].indexOf(this.state.newRocketLocations[j]) >= 0 ) {
-                    return true;
-                }
-        }
-    } 
-        return false
-    }
-
-    // generate rocket randomly onto the gameboard
-    generateRocket = () => {
-    let direction = Math.floor(Math.random() * 2); 
-    let row, col; 
-    let newRocketLocations = [...this.state.newRocketLocations];
-    this.state.rocketLocation.map((shipz)=>{
-        
-        if (direction === 1) {
-            row = Math.floor(Math.random() * this.state.boardSize);
-            col = Math.floor(Math.random() * this.state.boardSize - shipz.shipLength + 1);
-        } else {
-            col = Math.floor(Math.random() * this.state.boardSize);
-            row = Math.floor(Math.random() * this.state.boardSize - shipz.shipLength + 1); 
-        } 
-
-        for (let i = 0; i < shipz.shipLength; i++){
-            console.log('hi')
-            if (direction === 1) {
-                newRocketLocations.push( row + '' + (col + 1) )
-            // newRocketLocations.push(row + '' + (col + 1));
-            } else {
-                newRocketLocations.push((row + 1) + '' + col);
-            } 
-        }
-        return newRocketLocations; 
-    })
-    this.setState({
-        newRocketLocations: newRocketLocations 
-    })
-    }
+    // collision = (locations) => {
+    //     for (let i = 0; i < this.state.numRockets; i++){
+    //         let rocket = this.state.numRockets[i]; 
+    //         for (let j = 0; j < 4; j++) {
+    //             if (this.state.rocketLocation[j].indexOf(this.state.newRocketLocations[j]) >= 0 ) {
+    //                 return true;
+    //             }
+    //     }
+    // } 
+    //     return false
+    // }
+    
 
     // Declare classes in CSS to mark what's hit or missed
     // Hard code which items in the cells array have ships
     // > First set a ship icon to the board
     // > If it's hit, icon changes to flames
     // Toggle those classes
-
     // Each cell's state
-
     // if the cell with a state of empty has been hit && there is no ship value, state is empty else change the state to 'hit', if not stay empty
 
+    // sets the userInput into state for later use
     handleUserInput = (event) => {
         this.setState({
             userInput: event.target.value
         })
     }
 
+    // anytime the user hits a rocket cell, change the className according to if statement
     callFunction = (cell) => {
         // console.log(cell)
         if (cell.hasRocketbeenHit === true) {
             return 'shipHit'
+        } else if (cell.hasRocket === true) {
+            return 'blankHit'
         } else {
             return 'normal'
-
         }
     }
 
     //compare the input against the string content of the cell. 
     checkHit = (e) => {
+        // prevents webpage from refreshing after submit
         e.preventDefault();
-        this.userGuess(this.state.userInput); 
-        // console.log(this.state.userInput)
-        // console.log(e.target)
-        this.state.rocketLocation.map((setLocation) => {     
-            // console.log(setLocation)
-            if (setLocation.location.includes(this.state.userInput)) {
 
-                // this.state.cellArray.map((cells) => {
-                //     // QUESTION: HOW TO ACCESS A PROPERTY ON EACH INDIVIDUAL CELL
-                //     cells.forEach(cell => {
-                //         console.log(cell)
-                //         // let newArray = [...this.state.cellArray[0]];
-                //         // console.log(newArray)
-                //         this.setState({
-                //             hasRocketbeenHit: true
-                // //         })
-                // //     });
-                // })
-                const newArray = this.state.cellArray.map((cellz, key) => {
+        // calling userGuess with userInput as parameter
+        this.userGuess(this.state.userInput); 
+
+        // if userHits matches the total amount of hits for the game, alert user
+        if (this.state.userHits === this.state.totalHits) {
+            alert('gameover!')
+        }
+        // mapping state property to get to next level
+        this.state.rocketLocation.map((setLocation) => {     
+            // if userInput matches any of the items in location state property, add to userHit total.
+            if (setLocation.location.includes(this.state.userInput)) {
+                this.setState({
+                    userHits: this.state.userHits + 1
+                })
+                // creating a new array to replace the old state property
+                const newArray = this.state.cellArray.map((cellz) => {
                     return (
                         cellz.map((cell) => {
+                            // from the matched locations with user input, if also matches the cell id, change rockethasbeenhit to true
                             if (this.state.userInput === cell.id) {
-
-                                cell.hasRocketbeenHit = true
-    
-                                // this is where we change state to true, which should change the color of the item.
+                                    cell.hasRocketbeenHit = true
                             }
                             return cell;
                         })
-
                     )
                 })
-                console.log(newArray)
+                // updating the previous old state with current set state.
                 this.setState ({
                     cellArray: newArray
                 })
             }
         }) 
-        
-        // console.log(e.target)
-        // if (this.state.rocketLocation.includes(this.state.userInput)) {
-        //     console.log("it works")
-        //     this.setState({
-        //         rocketHit: !this.state.rocketHit   
-        //     });
-        // } else {
-        //     this.setState({
-        //         blankHit: !this.state.blankHit
-        //     })
-        // }
+        console.log(this.state.userHits)
     }
     
-        //call clickFunction()
     
-    changeCellClass = () => {
-        this.checkHit() 
-        if (this.state.empty === false) {
-            this.setState({
-                hit: !this.state.hit
-            });
-            console.log(this.state.hit);
-        }
-    }
+    // ------ DO WE NEED THIS GUYS?! -------
+    
+    // changeCellClass = () => {
+    //     this.checkHit() 
+    //     if (this.state.empty === false) {
+    //         this.setState({
+    //             hit: !this.state.hit
+    //         });
+    //         console.log(this.state.hit);
+    //     }
+    // }
 
     // handleFireButton = (e) => {
     //     e.preventDefault();
@@ -553,7 +503,15 @@ class GameCells extends Component {
     //     })
     // }
 
-    
+    // ------------------------------------
+
+
+
+
+
+    // destructing cellarray to use as a props for modal.js
+    // cellArrayz = { this.state.cellArray }
+
     render() {
 
     // Modal constants
@@ -585,22 +543,6 @@ class GameCells extends Component {
                                 
                             )
                         })}
-                    {/* <tr>
-                        <td
-                        className={
-                            this.state.rocketHit ? "normal" : "shipHit"}
-                        id="A1"
-                        data-value="A1"
-                        >
-                        A1
-                        </td>
-                        <td id="2" className={this.state.rocketHit ? "normal" : "shipHit"}>A2</td>
-                        <td id="3">A3</td>
-                        <td id="4" className={this.state.blankHit ? "normal" : "blankHit"}>A4</td>
-                        <td id="5">A5</td>
-                        <td id="6">A6</td>
-                        <Cell shipYes={true} />
-                    </tr>*/}
                     </tbody>
                 </table>
                 <input
@@ -608,12 +550,36 @@ class GameCells extends Component {
                     onChange={this.handleUserInput}
                     type="text"
                     placeholder="A1"
+                    required
                 />
                 <button onClick={toggleModal} id="fireButton">Kill that mothafocka</button>
                 </form>
+
+                {/* // if the user hits trhew rocket, have the modal say "you did it" + api call */}
+                {/* // if the user eneters the value dpoesnt not have a ship = "you suck"
+                // else if the userenters the duplicate "you alrewady clicked"
+                if () { */}
+
             </div>
         )
     }
 }
 
 export default GameCells;
+
+// Whats left that i noticed:
+// error handling
+// results in modal if you hit the item or not,
+// when locations of the rockets have all been hit (maybe unshift() the specific location string out of the location array, then sort of (if location array is empty, then rocket has been destroyed))
+// when a specific rocket has been destroyed, modal with API information is appended.
+// when all the ships have been hit, modal that pops up to say game over! you win! (just using an alert() for now)
+// definitely more, but I cant think of it all at the moment
+// styling, responsiveness... we still need time to do that, oh God. 
+
+
+// Consider that we need to make a second player now
+// since were making a second player, we'll need a second board for both players
+// consider having a second board that will show the players where their ships have been hit
+// how to take turns between players? Modal button to route back and forth between players
+// how to show changes in both boards (where the user clicked, where their opponents board shows them it goes hit)
+// R.I.P to us. 
