@@ -8,12 +8,11 @@ class GameCells extends Component {
     constructor() {
         super()
         this.state = {
-            empty: true,
             open: false,
             userInput: '',
             boardSize: 7,
-            charArray: ["A", "B", "C", "D", "E", "F", "G"],
             hitClass: '',
+            charArray: ['A','B','C','D','E','F','G'],
             rocketLocation: [
                 {
                     id: 'falcon1',
@@ -356,35 +355,33 @@ class GameCells extends Component {
             // console.log(rocket)
             this.generateRocketLocationz = () => {
                     
-                    const letters = ["A", "B", "C", "D", "E", "F", "G"];
+                    let letters = ["A", "B", "C", "D", "E", "F", "G"];
                     const numbers = [1, 2, 3, 4, 5, 6, 7];
-                    const usedCombinations = [];
-    
                     const shipCoordinate = () => {
                         const letterPosition = Math.floor(Math.random() * 7);
                         const numberPosition = Math.floor(Math.random() * 7);
                         return {
                             letter: letters[letterPosition],
                             number: numbers[numberPosition]
-
                         }
                     }
     
                     const ship = [];
-    
                     const shipData = shipCoordinate();
     
                     for (let i = 0; i < rocket.shipLength; i++) {
                         ship.push(`${shipData.letter}${shipData.number + i}`)
-                        usedCombinations.push = [`${shipData.letter}${shipData.number + i}`]
-
                         
                         rocket.location = ship
                     }
-
-                
-                    return console.log(rocket)
-
+                    
+                    // for (let i = letters.length - 1; i >= 0; i--) {
+                    //     if(letters[i] === shipData.letter) {
+                    //         letters.splice(i, 1)
+                    //         console.log(letters)
+                    //     }
+                    // }
+                    return console.log(letters)
             }
             this.generateRocketLocationz()
             return rocket
