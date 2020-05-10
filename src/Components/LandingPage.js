@@ -13,6 +13,9 @@ class LandingPage extends Component {
                 </header>
                 <main>
                     <div className="wrapper">
+                        <div className="battleLink">
+                            <Link className="enterBattle" to="GameBoard">enter the battle!</Link>
+                        </div>
                         <h2>How to play</h2>
                         <ul>
                             <li>
@@ -28,11 +31,6 @@ class LandingPage extends Component {
                                 <p>The person who <span className="fatText">booms</span> 10 rockets wins!</p>
                             </li>
                         </ul>                            
-                        
-                        <div className="battleLink">
-                            <Link className="enterBattle" to="GameBoard">enter the battle!</Link>
-                        </div>
-
                     </div>
                 </main>
                 <footer>
@@ -40,10 +38,12 @@ class LandingPage extends Component {
                         <div className="footerContent">
                             <div className="creators">
                                 <h4>Built by:</h4>
-                                <a href="https://alisacodes.dev/" rel="noreferrer" target="_blank">Alisa Kitkina</a>
-                                <a href="http://marichka.ca/" rel="noreferrer" target="_blank">Mariya Morosovska</a>
-                                <a href="http://www.mcabrera.ca/" rel="noreferrer" target="_blank">Miguel Cabrera</a>
-                                <a href="https://lucassilbernagel.com/" rel="noreferrer" target="_blank">Lucas Silbernagel</a>
+                                <div className="creatorsLinks">
+                                    <a href="https://alisacodes.dev/" rel="noreferrer" target="_blank">Alisa Kitkina</a>
+                                    <a href="http://marichka.ca/" rel="noreferrer" target="_blank">Mariya Morosovska</a>
+                                    <a href="http://www.mcabrera.ca/" rel="noreferrer" target="_blank">Miguel Cabrera</a>
+                                    <a href="https://lucassilbernagel.com/" rel="noreferrer" target="_blank">Lucas Silbernagel</a>
+                                </div>
                             </div>
                             <div className="credits">
                                 <h4>Rocket data provided by <a href="https://docs.spacexdata.com/?version=latest">SpaceX Rocket API</a></h4>
