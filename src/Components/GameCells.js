@@ -41,37 +41,43 @@ class GameCells extends Component {
                         id: 'A1',
                         hasRocket: false,
                         hasRocketbeenHit: false,
-                        hasBeenHit: false
+                        name: ""
                     },
                     {
                         id: 'A2',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'A3',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'A4',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'A5',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'A6',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'A7',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                 ],
                 [
@@ -79,36 +85,43 @@ class GameCells extends Component {
                         id: 'B1',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'B2',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'B3',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'B4',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'B5',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'B6',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'B7',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                 ],
                 [
@@ -116,36 +129,43 @@ class GameCells extends Component {
                         id: 'C1',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'C2',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'C3',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'C4',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'C5',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'C6',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'C7',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                 ],
                 [
@@ -153,36 +173,43 @@ class GameCells extends Component {
                         id: 'D1',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'D2',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'D3',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'D4',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'D5',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'D6',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'D7',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                 ],
                 [
@@ -190,36 +217,43 @@ class GameCells extends Component {
                         id: 'E1',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'E2',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'E3',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'E4',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'E5',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'E6',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'E7',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                 ],
                 [
@@ -227,36 +261,43 @@ class GameCells extends Component {
                         id: 'F1',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'F2',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'F3',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'F4',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'F5',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'F6',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'F7',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                 ],
                 [
@@ -264,36 +305,43 @@ class GameCells extends Component {
                         id: 'G1',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'G2',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'G3',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'G4',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'G5',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'G6',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                     {
                         id: 'G7',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        name: ""
                     },
                 ],
             ],
@@ -390,8 +438,19 @@ class GameCells extends Component {
                 const cellCheck = this.state.cellArray.map((cellz)=>{
                     return(
                         cellz.map((cell) => {
+                            //console.log(rocket.location.length)
                                 if(rocket.location.includes(cell.id)) {
-                                        cell.hasRocket = true
+                                    cell.hasRocket = true
+
+                                    if(rocket.location.length === 1) {
+                                        cell.name = "falcon1"
+                                    } else if (rocket.location.length === 2) {
+                                        cell.name = "falcon9"
+                                    } else if (rocket.location.length === 3) {
+                                        cell.name = "falconheavy"
+                                    } else if (rocket.location.length === 4) {
+                                        cell.name = "starship"
+                                    }
                                 }
 
                                 return cell

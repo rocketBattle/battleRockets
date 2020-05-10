@@ -8,7 +8,8 @@ export default class Modal extends React.Component {
       // Create ref to allow "close" button to be focused on when modal opens.
       this.button = React.createRef();
       this.state = {
-        isHitTrue: false
+        isHitTrue: false,
+        rocketName: ""
       }
   }
 
@@ -19,18 +20,15 @@ export default class Modal extends React.Component {
   }
 
   didWeGetAHitYet = () => {
-    const cellArrayCopy = this.props.cellArray;
-    cellArrayCopy.map((cellz) => {
-      console.log("these are cellz", cellz)
-      const finalCell = cellz.find(cell => {console.log(cell.id, this.props.userInput); return cell.id === this.props.userInput})
-      console.log(this.props.userInput, finalCell)
-
+    const newArray = this.props.cellArray;
+    newArray.map((cellz) => {
+      const finalCell = cellz.find(cell => {return cell.id === this.props.userInput})
       finalCell && this.setState ({
-        isHitTrue: finalCell.hasRocket
+        isHitTrue: finalCell.hasRocket,
+        rocketName: finalCell.name
       })   
 
     }, this)
-
   }
 
   render() {
@@ -42,7 +40,7 @@ export default class Modal extends React.Component {
               <button ref={this.button} className="closeModal" aria-label="close form" onClick={toggleModal} tabIndex="0">  
               &times;
               </button>
-              <UserMessage isHitTrue={this.state.isHitTrue}/>
+              <UserMessage isHitTrue={this.state.isHitTrue} rocketName = {this.state.rocketName}/>
             </div>
             <div className="modalOverlay" onClick={toggleModal}></div>
         </React.Fragment>

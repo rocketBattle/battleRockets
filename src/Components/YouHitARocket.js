@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios'; 
 
 class YouHitARocket extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             allDataArray: [],
             rocketArray: [],
@@ -41,7 +41,7 @@ class YouHitARocket extends Component {
                 return (
 
                     result.map((finalRocket) => {
-                        if (finalRocket.rocket_id === 'falcon1') {
+                        if (finalRocket.rocket_id === this.props.rocketName) {
                         return (
 
                             <div>
