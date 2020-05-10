@@ -387,7 +387,7 @@ class GameCells extends Component {
             let letter = this.state.charArray.indexOf(firstChar);
             let number = guess.charAt(1);
             // if letter or number is not a number, letters are too long/short then alert user for incorrect use. 
-            if (isNaN(letter) || isNaN(number) || letter < 0 || letter > this.state.boardSize || number < 0 || number > this.state.boardSize) {
+            if (isNaN(letter) || isNaN(number) || letter < 0 || letter > this.state.boardSize || number <= 0 || number > this.state.boardSize) {
                 alert(`Not a valid input`)
             } else {
                 return letter + number;
@@ -523,13 +523,10 @@ class GameCells extends Component {
         console.log(guess)
         if (!guess) {
             return 
+        } else {
+            this.toggleModal()
         }
 
-
-
-            // Toggle modal here, not in button
-
-        
         // if userHits matches the total amount of hits for the game, alert user
         if (this.state.userHits === this.state.totalHits) {
             alert('gameover!')
@@ -644,7 +641,7 @@ class GameCells extends Component {
                             required
                             value={this.state.userInput}
                         />
-                        <button onClick={toggleModal} id="fireButton">Let's boom some rockets!</button>
+                        <button id="fireButton">Let's boom some rockets!</button>
                     </div>
                 </form>
 
