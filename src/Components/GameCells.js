@@ -41,6 +41,7 @@ class GameCells extends Component {
                         id: 'A1',
                         hasRocket: false,
                         hasRocketbeenHit: false,
+                        hasBeenHit: false
                     },
                     {
                         id: 'A2',
@@ -299,7 +300,8 @@ class GameCells extends Component {
             newRocketLocations: [],
             numRockets: 4,
             totalHits: 9,
-            userHits: 0
+            userHits: 0,
+            hasRocketY: false
         }
     }
 
@@ -327,7 +329,6 @@ class GameCells extends Component {
             open: !prevState.open
         }));
     };
-
 
     // userGuess function called when user submits in the input.
     userGuess = (guess) => {
@@ -385,12 +386,6 @@ class GameCells extends Component {
                 };
 
                 removeDuplicates(letters)
-                // for (let i = letters.length - 1; i >= 0; i--) {
-                //     if(letters[i] === shipData.letter) {
-                //         letters.splice(shipData.letter, 1)
-                //         console.log(letters, shipData.letter)
-                //     }
-                // }
 
                 const cellCheck = this.state.cellArray.map((cellz)=>{
                     return(
@@ -398,6 +393,7 @@ class GameCells extends Component {
                                 if(rocket.location.includes(cell.id)) {
                                         cell.hasRocket = true
                                 }
+
                                 return cell
                         })
                     )
@@ -419,29 +415,6 @@ class GameCells extends Component {
         return console.log(newArray)
     }
 
-
-    // // generate a random letter from the charArray
-    // const randomLetter = this.state.charArray[Math.floor(Math.random() * this.state.charArray.length)];
-    // // generate a random number from 1 to 7
-    // let randomNumber = Math.floor(Math.random() * 7) + 1;
-    // // concatenate the two variable together to make 1 location.
-    // let randomLocation = randomLetter + randomNumber;
-    // rocket.location.push(randomLocation);
-
-    // // If there are matching numbers in the array, change it?!
-    // if (randomLocation.includes(rocket.location[0, 1, 2, 3])) {
-    //     console.log(`oh SHIT`);
-    // }
-
-
-    // Declare classes in CSS to mark what's hit or missed
-    // Hard code which items in the cells array have ships
-    // > First set a ship icon to the board
-    // > If it's hit, icon changes to flames
-    // Toggle those classes
-    // Each cell's state
-    // if the cell with a state of empty has been hit && there is no ship value, state is empty else change the state to 'hit', if not stay empty
-
     // sets the userInput into state for later use
     handleUserInput = (event) => {
         this.setState({
@@ -451,13 +424,11 @@ class GameCells extends Component {
 
     // anytime the user hits a rocket cell, change the className according to if statement
     callFunction = (cell) => {
-        // console.log(cell)
-        // if ((cell.hasRocket === false && cell.hasRocketbeenHit === false) || (cell.hasRocket === false && cell.hasRocketbeenHit === true)) {
-        //     return 'blankHit'
-        // } else if (cell.hasRocket === true && cell.hasRocketbeenHit === true) {
-        //     return 'shipHit'
-        // } 
-        // CANT FOGUIRE IT OUT JHkajhsdjhas
+        if (cell.hasRocket === false && cell.hasRocketbeenHit === false) {
+            return 'blankHit'
+        } else if (cell.hasRocket === true && cell.hasRocketbeenHit === true) {
+            return 'shipHit'
+        }  
     }
 
     //compare the input against the string content of the cell. 
@@ -472,6 +443,7 @@ class GameCells extends Component {
         if (this.state.userHits === this.state.totalHits) {
             alert('gameover!')
         }
+
         // mapping state property to get to next level
         this.state.rocketLocation.map((setLocation) => {
             // if userInput matches any of the items in location state property, add to userHit total.
@@ -501,30 +473,6 @@ class GameCells extends Component {
         console.log(this.state.userHits)
     }
 
-    didWeGetAHitYet = () => {
-        // this.state.cellArray.map((cellz) => {
-        //     return (
-        //         cellz.map((cell) => {
-        //             // if userinput matches cell.id then change the hasRocket state to true
-        //             if (cell.hasRocketbeenHit === true) {
-        //                 console.log(cell.hasRocketbeenHit)
-        //                 return true;
-        //             } else if (cell.hasRocketbeenHit === false) {
-        //                 console.log(cell.hasRocketbeenHit)
-        //                 return false;
-        //             }
-
-        //         })
-        //     )
-        // })
-    }
-
-
-
-
-    // destructing cellarray to use as a props for modal.js
-    // cellArrayz = { this.state.cellArray }
-
     render() {
 
         // Modal constants
@@ -533,19 +481,7 @@ class GameCells extends Component {
 
         return (
             <div className="board">
-                {
-                    this.state.cellArray.map((cellz) => {
-                        return (
-                            cellz.map((cell) => {
-                                // if userinput matches cell.id then change the hasRocket state to true
-                                return (
-                                    open && <Modal isHitTrue={cell.hasRocket ? true : false}  toggleModal={toggleModal} />
-                                )
-                            })
-                        )
-                    })
-                }
-
+                {open && <Modal cellArray={this.state.cellArray} userInput={this.state.userInput}toggleModal={toggleModal}/>}
                 <form action="#" onSubmit={this.checkHit}>
                     <table>
                         <tbody>
@@ -555,7 +491,7 @@ class GameCells extends Component {
                                         {tr.map((td) => {
                                             return (
 
-                                                <td className={this.callFunction(td)}>{td.id}</td>
+                                            <td className={this.callFunction(td)}>{td.id}</td>
                                             )
                                         })}
                                     </tr>
