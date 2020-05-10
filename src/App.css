@@ -235,8 +235,69 @@ html {
   overflow: hidden;
 }
 
+body {
+  font-size: 62.5%;
+  min-height: 100vh;
+  background-color: #003049;
+}
+
 .wrapper {
   margin: 0 auto;
+  max-width: 1280px;
+  width: 70%;
+}
+
+h1, h2, h4 {
+  font-family: "Teko", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 8rem;
+  letter-spacing: 8px;
+  text-shadow: 8px 6px #D62828;
+}
+
+h3 {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+}
+
+h2 {
+  letter-spacing: 5px;
+  font-size: 4rem;
+  text-shadow: 4px 4px #D62828;
+}
+
+h4 {
+  letter-spacing: 3px;
+  font-size: 1.9rem;
+}
+
+h3, p, a, li {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  letter-spacing: 1.3px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  letter-spacing: 1.3px;
+}
+
+li {
+  list-style: none;
+}
+
+.fatText {
+  font-weight: 900;
 }
 
 .board {
@@ -261,11 +322,58 @@ td {
 }
 
 .blankHit {
-  background-color: orange;
+  background-color: gray;
 }
 
 .normal {
   background-color: white;
+}
+
+header, main, footer {
+  background-color: #003049;
+}
+
+header h1, header h2, header h3, header h4, header p, header a, header li, main h1, main h2, main h3, main h4, main p, main a, main li, footer h1, footer h2, footer h3, footer h4, footer p, footer a, footer li {
+  color: #FCBF49;
+}
+
+header, main {
+  text-align: center;
+}
+
+header {
+  padding-top: 50px;
+}
+
+main {
+  padding: 50px 0px;
+}
+
+main ul {
+  width: 65%;
+  padding: 0;
+  margin: 0 auto;
+}
+
+main ul li {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin: 10px 0px;
+}
+
+main ul li p {
+  padding-bottom: 20px;
+  border-bottom: 2px solid #D62828;
+}
+
+main .enterBattle {
+  font-size: 5rem;
+  text-transform: uppercase;
+  font-family: "Teko", sans-serif;
+  background-color: #D62828;
+  padding: 10px 20px;
+  margin-top: 50px;
 }
 
 .modalOverlay {
@@ -276,6 +384,7 @@ td {
   left: 0;
   position: fixed;
   z-index: 10;
+  opacity: 4%;
 }
 
 .modal {
@@ -325,3 +434,4 @@ td {
     opacity: 0;
   }
 }
+/*# sourceMappingURL=App.css.map */
