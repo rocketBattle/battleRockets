@@ -413,33 +413,38 @@ class GameCells extends Component {
                     return {
                         // returns the letter/number[i] of the array
                         letter: letters[letterPosition],
-                        number: numbers[numberPosition]
+                        number: numbers[numberPosition],
                     }
                 }
 
+                
                 const ship = [];
                 const shipData = shipCoordinate();
                 // iterating through rocket shiplength and pushing the data into ship array.
                 for (let i = 0; i < rocket.shipLength; i++) {
-                    ship.push(`${shipData.letter}${shipData.number + i}`)
-                    // setting the state location to as our new data
-                    rocket.location = ship
+                    const letterCoordinate = shipData.letter;
+                    const numberCoordinate = shipData.number + i;
+                    const coordinate = letterCoordinate + numberCoordinate;
+                    ship.push(`${coordinate}`);
+                    console.log(ship)
+
+                    if (coordinate.includes(ship)) {
+                        console.log(`haha`)
+                    } 
+                    else {
+                        console.log(`ehehe`)
+                    }
                 }
-
-                // console.log(letters.from(new Set(letters)));
-
-                const removeDuplicates = (letters) => {
-                    letters.splice(letters.indexOf(shipData.letter),1)
-                    console.log(letters)
-                };
-
-                removeDuplicates(letters)
-                // for (let i = letters.length - 1; i >= 0; i--) {
-                //     if(letters[i] === shipData.letter) {
-                //         letters.splice(shipData.letter, 1)
-                //         console.log(letters, shipData.letter)
-                //     }
-                // }
+                    // setting the state location to as our new data
+                    // if it does exist ===> call the fucntion again
+                    // data structuring 
+                    // check the ship array first
+                    // .includes (create a var)
+                    rocket.location = ship
+                    // make a copy of the data
+                    // change the info in the copy
+                    // rocket.location = copy
+                   // this.setState({})
 
                 const cellCheck = this.state.cellArray.map((cellz)=>{
                     return(
@@ -454,7 +459,6 @@ class GameCells extends Component {
                 this.setState({
                     cellArray: cellCheck
                 })
-                return console.log(letters)
             }
             this.generateRocketLocationz()
             return rocket
