@@ -12,13 +12,12 @@ class GameCells extends Component {
             userInput: '',
             boardSize: 7,
             hitClass: '',
-            charArray: ['A','B','C','D','E','F','G'],
+            charArray: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
             rocketLocation: [
                 {
                     id: 'falcon1',
                     shipLength: 1,
                     location: []
-
                 },
                 {
                     id: 'falcon9',
@@ -37,9 +36,9 @@ class GameCells extends Component {
                 },
             ],
             cellArray: [
-                [   
+                [
                     {
-                        id: 'A1', 
+                        id: 'A1',
                         hasRocket: false,
                         hasRocketbeenHit: false,
                     },
@@ -59,7 +58,7 @@ class GameCells extends Component {
                         hasRocketbeenHit: false,
                     },
                     {
-                        id: 'A5', 
+                        id: 'A5',
                         hasRocket: false,
                         hasRocketbeenHit: false,
                     },
@@ -73,8 +72,8 @@ class GameCells extends Component {
                         hasRocket: false,
                         hasRocketbeenHit: false,
                     },
-                ], 
-                [   
+                ],
+                [
                     {
                         id: 'B1',
                         hasRocket: false,
@@ -110,8 +109,8 @@ class GameCells extends Component {
                         hasRocket: false,
                         hasRocketbeenHit: false,
                     },
-                ], 
-                [   
+                ],
+                [
                     {
                         id: 'C1',
                         hasRocket: false,
@@ -147,7 +146,7 @@ class GameCells extends Component {
                         hasRocket: false,
                         hasRocketbeenHit: false,
                     },
-                ], 
+                ],
                 [
                     {
                         id: 'D1',
@@ -184,7 +183,7 @@ class GameCells extends Component {
                         hasRocket: false,
                         hasRocketbeenHit: false,
                     },
-                ], 
+                ],
                 [
                     {
                         id: 'E1',
@@ -221,8 +220,8 @@ class GameCells extends Component {
                         hasRocket: false,
                         hasRocketbeenHit: false,
                     },
-                ], 
-                [   
+                ],
+                [
                     {
                         id: 'F1',
                         hasRocket: false,
@@ -258,7 +257,7 @@ class GameCells extends Component {
                         hasRocket: false,
                         hasRocketbeenHit: false,
                     },
-                ], 
+                ],
                 [
                     {
                         id: 'G1',
@@ -313,17 +312,17 @@ class GameCells extends Component {
 
     toggleModal = () => {
         // if userInput === cell.id then change the value of cell.hasRockets
-        this.state.cellArray.map((cellz) => {
+        // this.state.cellArray.map((cellz) => {
 
-            return (
-                cellz.map((cell) => {
-                    // if userinput matches cell.id then change the hasRocket state to true
-                    if (this.state.userInput === cell.id) {
-                        cell.hasRocket = true;
-                    }
-                })
-            )
-        })
+        //     return (
+        //         cellz.map((cell) => {
+        //             // if userinput matches cell.id then change the hasRocket state to true
+        //             if (this.state.userInput === cell.id) {
+        //                 cell.hasRocket = true;
+        //             }
+        //         })
+        //     )
+        // })
         this.setState(prevState => ({
             open: !prevState.open
         }));
@@ -337,12 +336,12 @@ class GameCells extends Component {
         } else {
             let firstChar = guess.charAt(0);
             let letter = this.state.charArray.indexOf(firstChar);
-            let number = guess.charAt(1); 
+            let number = guess.charAt(1);
             // if letter or number is not a number, letters are too long/short then alert user for incorrect use. 
-            if (isNaN(letter) || isNaN(number)|| letter < 0 || letter >= this.state.boardSize || number < 0 || number >= this.state.boardSize) {
+            if (isNaN(letter) || isNaN(number) || letter < 0 || letter >= this.state.boardSize || number < 0 || number >= this.state.boardSize) {
                 alert(`not valid input`)
             } else {
-                return letter + number; 
+                return letter + number;
             }
         }
         return null;
@@ -351,37 +350,65 @@ class GameCells extends Component {
     // New Generate Rocket Location
     generateRocketLocations = () => {
         const newArray = this.state.rocketLocation.map((rocket) => {
-
             // console.log(rocket)
             this.generateRocketLocationz = () => {
-                    
-                    let letters = ["A", "B", "C", "D", "E", "F", "G"];
-                    const numbers = [1, 2, 3, 4, 5, 6, 7];
-                    const shipCoordinate = () => {
-                        const letterPosition = Math.floor(Math.random() * 7);
-                        const numberPosition = Math.floor(Math.random() * 7);
-                        return {
-                            letter: letters[letterPosition],
-                            number: numbers[numberPosition]
-                        }
+
+                let letters = ["A", "B", "C", "D", "E", "F", "G"];
+                const numbers = [1, 2, 3, 4, 5, 6, 7];
+                // function that sets the specific Letter and Number
+                const shipCoordinate = () => {
+                    // random number between 1-7
+                    const letterPosition = Math.floor(Math.random() * 7);
+                    ///?????????
+                    const numberPosition = Math.floor(Math.random() * 5);
+                    return {
+                        // returns the letter/number[i] of the array
+                        letter: letters[letterPosition],
+                        number: numbers[numberPosition]
                     }
-    
-                    const ship = [];
-                    const shipData = shipCoordinate();
-    
-                    for (let i = 0; i < rocket.shipLength; i++) {
-                        ship.push(`${shipData.letter}${shipData.number + i}`)
-                        
-                        rocket.location = ship
-                    }
-                    
-                    // for (let i = letters.length - 1; i >= 0; i--) {
-                    //     if(letters[i] === shipData.letter) {
-                    //         letters.splice(i, 1)
-                    //         console.log(letters)
-                    //     }
-                    // }
-                    return console.log(letters)
+                }
+
+                const ship = [];
+                const shipData = shipCoordinate();
+                // iterating through rocket shiplength and pushing the data into ship array.
+                for (let i = 0; i < rocket.shipLength; i++) {
+                    ship.push(`${shipData.letter}${shipData.number + i}`)
+                    // setting the state location to as our new data
+                    rocket.location = ship
+                }
+
+                // console.log(letters.from(new Set(letters)));
+
+                const removeDuplicates = (letters) => {
+                    letters.splice(letters.indexOf(shipData.letter),1)
+                    console.log(letters)
+                };
+
+                removeDuplicates(letters)
+                // for (let i = letters.length - 1; i >= 0; i--) {
+                //     if(letters[i] === shipData.letter) {
+                //         letters.splice(shipData.letter, 1)
+                //         console.log(letters, shipData.letter)
+                //     }
+                // }
+
+                const cellCheck = this.state.cellArray.map((cellz)=>{
+                    return(
+                        cellz.map((cell) => {
+
+                                if(rocket.location.includes(cell.id)) {
+                                    
+                                        cell.hasRocket = true
+                                    
+                                }
+                                return cell
+                        })
+                    )
+                })
+                this.setState({
+                    cellArray: cellCheck
+                })
+                return console.log(letters)
             }
             this.generateRocketLocationz()
             return rocket
@@ -389,113 +416,26 @@ class GameCells extends Component {
         this.setState({
             rocketLocation: newArray
         })
+
         // // set the newArray to state
         // // we are not taking duplicates into account just yet
         return console.log(newArray)
     }
-        // set the newArray to state
-        // we are not taking duplicates into account just yet
-        return newArray
-    }  
-
-                // console.log(ship);
-
-                // const letters = ["A", "B", "C", "D", "E", "F", "G"];
-                // const numbers = [1,2,3,4,5,6,7];
-                // const usedCombinations = [];
-
-                // const shipCoordinate = () => {
-                // const letterPosition = Math.floor(Math.random() * 7);
-                // const numberPosition = Math.floor(Math.random() * 7);
-                
-                // return {
-                    
-                // }
-                // }
-
-                // // const ship = [];
-                // // const shipLength = 4;
-
-                // const shipData = shipCoordinate();
-
-                // for (let i = 1; i < rocket.shipLength; i ++) {
-                // rocket.location.push(`${shipData.letter}${shipData.number + i}`)
-                // // usedCombinations.push = [`${shipData.letter}${shipData.number + i}`]
-                // }
-
-                // console.log(rocket);
-
-                // // generate a random letter from the charArray
-                // const randomLetter = this.state.charArray[Math.floor(Math.random() * this.state.charArray.length)];
-
-                // // generate a random number from 1 to 7
-                // let randomNumber = Math.floor(Math.random() * 7) + 1;
-                // // concatenate the two variable together to make 1 location.
-                // let randomLocation = randomLetter + randomNumber;
-                // rocket.location.push(randomLocation);
-
-                // // If there are matching numbers in the array, change it?!
-                // if (randomLocation.includes(rocket.location[0, 1, 2, 3])) {
-                //     console.log(`oh SHIT`);
-                // }
-
-                // ERROR HANDLING: TRY TO PREVENT THE SAME LOCATION TO GENERATE 
-                // const ranNums = []
-                // let i = rocket.shipLength
-                // let j = 0;
-
-                // while (i--) {
-                //     j = Math.floor(Math.random() * (i+1));
-                //     ranNums.push(rocket[j]);
-                //     rocket.location.splice(j, 1);
-                // }
-                // console.log(ranNums)
-
-                
-                // console.log(randomLocation);
-                // return randomLocation
-
-            // if statement that checks how many locations to add into the rocketsLocation array.
-                // // generate a random letter from the charArray
-                // const randomLetter = this.state.charArray[Math.floor(Math.random() * this.state.charArray.length)];
-                // // generate a random number from 1 to 7
-                // let randomNumber = Math.floor(Math.random() * 7) + 1;
-                // // concatenate the two variable together to make 1 location.
-                // let randomLocation = randomLetter + randomNumber;
-                // rocket.location.push(randomLocation);
-
-                // // If there are matching numbers in the array, change it?!
-                // if (randomLocation.includes(rocket.location[0, 1, 2, 3])) {
-                //     console.log(`oh SHIT`);
-                // }
-
-                // // ERROR HANDLING: TRY TO PREVENT THE SAME LOCATION TO GENERATE 
-                // // const ranNums = []
-                // // let i = rocket.shipLength
-                // // let j = 0;
-
-                // // while (i--) {
-                // //     j = Math.floor(Math.random() * (i+1));
-                // //     ranNums.push(rocket[j]);
-                // //     rocket.location.splice(j, 1);
-                // // }
-                // // console.log(ranNums)
-                // console.log(randomLocation);
-                // return randomLocation
 
 
-    // collision = (locations) => {
-    //     for (let i = 0; i < this.state.numRockets; i++){
-    //         let rocket = this.state.numRockets[i]; 
-    //         for (let j = 0; j < 4; j++) {
-    //             if (this.state.rocketLocation[j].indexOf(this.state.newRocketLocations[j]) >= 0 ) {
-    //                 return true;
-    //             }
-    //     }
-    // } 
-    //     return false
+    // // generate a random letter from the charArray
+    // const randomLetter = this.state.charArray[Math.floor(Math.random() * this.state.charArray.length)];
+    // // generate a random number from 1 to 7
+    // let randomNumber = Math.floor(Math.random() * 7) + 1;
+    // // concatenate the two variable together to make 1 location.
+    // let randomLocation = randomLetter + randomNumber;
+    // rocket.location.push(randomLocation);
+
+    // // If there are matching numbers in the array, change it?!
+    // if (randomLocation.includes(rocket.location[0, 1, 2, 3])) {
+    //     console.log(`oh SHIT`);
     // }
-    
+
 
     // Declare classes in CSS to mark what's hit or missed
     // Hard code which items in the cells array have ships
@@ -515,12 +455,14 @@ class GameCells extends Component {
     // anytime the user hits a rocket cell, change the className according to if statement
     callFunction = (cell) => {
         // console.log(cell)
-        if (cell.hasRocketbeenHit === true) {
+        if (cell.hasRocketbeenHit === true && cell.hasRocket === true) {
             return 'shipHit'
-        } else if (cell.hasRocket === true) {
-            return 'blankHit'
-        } else {
+        } else if (cell.hasRocket === false && cell.hasRocketbeenHit === false ) {
             return 'normal'
+        } else if (cell.hasRocket === true && cell.hasRocketbeenHit === false){
+             return 'blankHit'
+        } else {
+            return 'blankHit'
         }
     }
 
@@ -530,40 +472,41 @@ class GameCells extends Component {
         e.preventDefault();
 
         // calling userGuess with userInput as parameter
-        this.userGuess(this.state.userInput); 
+        this.userGuess(this.state.userInput);
 
         // if userHits matches the total amount of hits for the game, alert user
         if (this.state.userHits === this.state.totalHits) {
             alert('gameover!')
         }
         // mapping state property to get to next level
-        this.state.rocketLocation.map((setLocation) => {     
+        this.state.rocketLocation.map((setLocation) => {
             // if userInput matches any of the items in location state property, add to userHit total.
             if (setLocation.location.includes(this.state.userInput)) {
                 this.setState({
                     userHits: this.state.userHits + 1
                 })
+                console.log(this.state.userHits)
                 // creating a new array to replace the old state property
                 const newArray = this.state.cellArray.map((cellz) => {
                     return (
                         cellz.map((cell) => {
                             // from the matched locations with user input, if also matches the cell id, change rockethasbeenhit to true
                             if (this.state.userInput === cell.id) {
-                                    cell.hasRocketbeenHit = true
+                                cell.hasRocketbeenHit = true
                             }
                             return cell;
                         })
                     )
                 })
                 // updating the previous old state with current set state.
-                this.setState ({
+                this.setState({
                     cellArray: newArray
                 })
             }
-        }) 
+        })
         console.log(this.state.userHits)
     }
-    
+
     didWeGetAHitYet = () => {
         // this.state.cellArray.map((cellz) => {
         //     return (
@@ -582,14 +525,17 @@ class GameCells extends Component {
         // })
     }
 
+
+
+
     // destructing cellarray to use as a props for modal.js
     // cellArrayz = { this.state.cellArray }
 
     render() {
 
-    // Modal constants
-    const { open } = this.state;
-    const { toggleModal } = this;
+        // Modal constants
+        const { open } = this.state;
+        const { toggleModal } = this;
 
         return (
             <div className="board">
@@ -599,7 +545,7 @@ class GameCells extends Component {
                             cellz.map((cell) => {
                                 // if userinput matches cell.id then change the hasRocket state to true
                                 return (
-                                    open && <Modal isHitTrue={cell.hasRocketbeenHit} toggleModal={toggleModal} /> 
+                                    open && <Modal isHitTrue={cell.hasRocket ? true : false}  toggleModal={toggleModal} />
                                 )
                             })
                         )
@@ -609,32 +555,32 @@ class GameCells extends Component {
 
                 <div className="messageArea"></div>
                 <form action="#" onSubmit={this.checkHit}>
-                <table>
-                    <tbody>
-                        {this.state.cellArray.map((tr)=>{
-                            return(                                
+                    <table>
+                        <tbody>
+                            {this.state.cellArray.map((tr) => {
+                                return (
                                     <tr>
-                                        {tr.map((td)=>{
-                                            return(
+                                        {tr.map((td) => {
+                                            return (
 
                                                 <td className={this.callFunction(td)}>{td.id}</td>
                                             )
                                         })}
                                     </tr>
-                                
-                            )
-                        })}
-                    </tbody>
-                </table>
-                <input
-                    id="userInput"
-                    onChange={this.handleUserInput}
-                    type="text"
-                    placeholder="A1"
-                    required
-                    
-                />
-                <button onClick={toggleModal} id="fireButton">Kill that mothafocka</button>
+
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                    <input
+                        id="userInput"
+                        onChange={this.handleUserInput}
+                        type="text"
+                        placeholder="A1"
+                        required
+
+                    />
+                    <button onClick={toggleModal} id="fireButton">Kill that mothafocka</button>
                 </form>
 
                 {/* // if the user hits trhew rocket, have the modal say "you did it" + api call */}
