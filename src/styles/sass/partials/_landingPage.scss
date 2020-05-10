@@ -18,25 +18,60 @@ main {
     ul {
         width: 65%;
         padding: 0;
-        margin: 0 auto;
+        margin: 15px auto;
         li {
             text-transform: uppercase;
             font-size: 1.5rem;
             line-height: 1.4;
             margin: 10px 0px;
             p {
+                font-size: 1.3rem;
                 padding-bottom: 20px;
                 border-bottom: 2px solid $accentColor;
             }
         }
     }
+    .battleLink {
+        margin-top: 60px;
+        .enterBattle {
+            font-size: 5rem;
+            text-transform: uppercase;
+            font-family: $headingFont;
+            background-color: $accentColor;
+            box-shadow: 15px 15px $contentColor;
+            padding: 10px 20px;
+            margin-top: 50px;
+            transition: all 0.2s ease;
+        }
+        .enterBattle:active {
+            box-shadow: 8px 8px $contentColor;
+        }
+    }
+}
 
-    .enterBattle {
-        font-size: 5rem;
+footer {
+    h4 {
+        font-family: $contentFont;
+        font-size: 1.2rem;
+        font-weight: 400;
         text-transform: uppercase;
+    }
+    a {
         font-family: $headingFont;
-        background-color: $accentColor;
-        padding: 10px 20px;
-        margin-top: 50px;
+    }
+    text-align: center;
+    .creators {
+        margin: 10px 0px;
+        a {
+            font-size: 1.5rem;
+            margin: 0px 10px;
+            text-transform: uppercase;
+        }
+    }
+    .credits {
+        a {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+        }
     }
 }

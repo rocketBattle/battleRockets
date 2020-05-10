@@ -237,7 +237,6 @@ html {
 
 body {
   font-size: 62.5%;
-  min-height: 100vh;
   background-color: #003049;
 }
 
@@ -254,7 +253,7 @@ h1, h2, h4 {
 }
 
 h1 {
-  font-size: 8rem;
+  font-size: 7rem;
   letter-spacing: 8px;
   text-shadow: 8px 6px #D62828;
 }
@@ -301,20 +300,77 @@ li {
 }
 
 .board {
-  border: 1px solid red;
-  width: 280px;
-}
-
-.messageArea {
-  border: 1px solid blue;
-  width: 100%;
-  height: 40px;
+  width: 420px;
 }
 
 td {
-  width: 40px;
-  height: 40px;
-  border: 1px solid green;
+  width: 60px;
+  height: 60px;
+  font-size: 1.3rem;
+  font-family: "Lato", sans-serif;
+  background-color: #D62828;
+}
+
+.boardContainer {
+  padding: 20px 0px;
+  margin-top: 30px;
+  background-color: #FCBF49;
+  min-height: 70vh;
+  text-align: center;
+  -webkit-box-shadow: 20px 20px #D62828;
+          box-shadow: 20px 20px #D62828;
+}
+
+.boardContainer h2 {
+  text-transform: uppercase;
+  color: #D62828;
+  font-size: 6rem;
+  text-shadow: 5px 5px #003049;
+}
+
+.boardContainer p {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: #D62828;
+  font-weight: 900;
+}
+
+.boardContainer .board {
+  margin: 50px auto;
+}
+
+.boardContainer .input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 20px;
+  font-size: 1.5rem;
+}
+
+.boardContainer .input input {
+  font-family: "Teko", sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 8px;
+}
+
+.boardContainer .input button {
+  border: none;
+  margin-top: 15px;
+  text-transform: uppercase;
+  font-family: "Teko", sans-serif;
+  padding: 15px 0px;
+  letter-spacing: 5px;
+  font-size: 2rem;
+  background-color: #003049;
+  color: #FCBF49;
+  -webkit-box-shadow: 5px 5px #D62828;
+          box-shadow: 5px 5px #D62828;
 }
 
 .shipHit {
@@ -352,7 +408,7 @@ main {
 main ul {
   width: 65%;
   padding: 0;
-  margin: 0 auto;
+  margin: 15px auto;
 }
 
 main ul li {
@@ -363,17 +419,61 @@ main ul li {
 }
 
 main ul li p {
+  font-size: 1.3rem;
   padding-bottom: 20px;
   border-bottom: 2px solid #D62828;
 }
 
-main .enterBattle {
+main .battleLink {
+  margin-top: 60px;
+}
+
+main .battleLink .enterBattle {
   font-size: 5rem;
   text-transform: uppercase;
   font-family: "Teko", sans-serif;
   background-color: #D62828;
+  -webkit-box-shadow: 15px 15px #FCBF49;
+          box-shadow: 15px 15px #FCBF49;
   padding: 10px 20px;
   margin-top: 50px;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+main .battleLink .enterBattle:active {
+  -webkit-box-shadow: 8px 8px #FCBF49;
+          box-shadow: 8px 8px #FCBF49;
+}
+
+footer {
+  text-align: center;
+}
+
+footer h4 {
+  font-family: "Lato", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+footer a {
+  font-family: "Teko", sans-serif;
+}
+
+footer .creators {
+  margin: 10px 0px;
+}
+
+footer .creators a {
+  font-size: 1.5rem;
+  margin: 0px 10px;
+  text-transform: uppercase;
+}
+
+footer .credits a {
+  font-size: 1.5rem;
+  text-transform: uppercase;
 }
 
 .modalOverlay {

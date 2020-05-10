@@ -22,16 +22,12 @@ class GameBoard extends Component {
     render() {
         return(
             <div className="wrapper">
-                <h2>player 1</h2>
-                <p>place your damn rockets</p>
+                <div className="boardContainer">
+                    <h2>Player 1's turn!</h2>
+                    <p>Boom the opponent!</p>
 
-
-                {/* <RocketsInfo /> */}
-
-                <div className="board">
                     <GameCells />
                 </div>
-
             </div>
         )
     }
