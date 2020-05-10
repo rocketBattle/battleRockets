@@ -425,7 +425,7 @@ main ul li p {
 }
 
 main .battleLink {
-  margin-top: 60px;
+  margin-bottom: 40px;
 }
 
 main .battleLink .enterBattle {
@@ -433,10 +433,9 @@ main .battleLink .enterBattle {
   text-transform: uppercase;
   font-family: "Teko", sans-serif;
   background-color: #D62828;
-  -webkit-box-shadow: 15px 15px #FCBF49;
-          box-shadow: 15px 15px #FCBF49;
-  padding: 10px 20px;
-  margin-top: 50px;
+  -webkit-box-shadow: 10px 10px #FCBF49;
+          box-shadow: 10px 10px #FCBF49;
+  padding: 0px 20px;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
@@ -532,6 +531,79 @@ footer .credits a {
   from {
     top: -800px;
     opacity: 0;
+  }
+}
+
+@media (max-width: 726px) {
+  h1 {
+    font-size: 6rem;
+  }
+}
+
+@media (max-width: 555px) {
+  header {
+    padding-top: 20px;
+  }
+  h1 {
+    font-size: 4rem;
+    letter-spacing: 3px;
+    text-shadow: 5px 4px #D62828;
+  }
+  h2 {
+    font-size: 2.5rem;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px #D62828;
+  }
+  h3 {
+    font-size: 1rem;
+  }
+  main {
+    padding: 0px;
+  }
+  main h2 {
+    padding-top: 10px;
+  }
+  main ul {
+    width: 100%;
+  }
+  main ul li p {
+    padding-bottom: 10px;
+    font-size: 0.8rem;
+  }
+  main .battleLink {
+    margin-top: 35px;
+  }
+  main .battleLink .enterBattle {
+    padding: 5px 5px;
+    font-size: 2rem;
+    -webkit-box-shadow: 8px 8px #FCBF49;
+            box-shadow: 8px 8px #FCBF49;
+  }
+  footer {
+    padding-top: 40px;
+  }
+  footer h4 {
+    font-size: 0.8rem;
+  }
+  footer .creators .creatorsLinks {
+    margin-top: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  footer .creators .creatorsLinks a {
+    margin: 5px 0px;
+    font-size: 1rem;
+  }
+  footer .credits a {
+    font-size: 1.2rem;
   }
 }
 /*# sourceMappingURL=App.css.map */
