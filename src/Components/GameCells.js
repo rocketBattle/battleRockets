@@ -395,11 +395,8 @@ class GameCells extends Component {
                 const cellCheck = this.state.cellArray.map((cellz)=>{
                     return(
                         cellz.map((cell) => {
-
                                 if(rocket.location.includes(cell.id)) {
-                                    
                                         cell.hasRocket = true
-                                    
                                 }
                                 return cell
                         })
@@ -455,15 +452,12 @@ class GameCells extends Component {
     // anytime the user hits a rocket cell, change the className according to if statement
     callFunction = (cell) => {
         // console.log(cell)
-        if (cell.hasRocketbeenHit === true && cell.hasRocket === true) {
-            return 'shipHit'
-        } else if (cell.hasRocket === false && cell.hasRocketbeenHit === false ) {
-            return 'normal'
-        } else if (cell.hasRocket === true && cell.hasRocketbeenHit === false){
-             return 'blankHit'
-        } else {
-            return 'blankHit'
-        }
+        // if ((cell.hasRocket === false && cell.hasRocketbeenHit === false) || (cell.hasRocket === false && cell.hasRocketbeenHit === true)) {
+        //     return 'blankHit'
+        // } else if (cell.hasRocket === true && cell.hasRocketbeenHit === true) {
+        //     return 'shipHit'
+        // } 
+        // CANT FOGUIRE IT OUT JHkajhsdjhas
     }
 
     //compare the input against the string content of the cell. 
@@ -551,9 +545,7 @@ class GameCells extends Component {
                         )
                     })
                 }
-                <Rockets />
 
-                <div className="messageArea"></div>
                 <form action="#" onSubmit={this.checkHit}>
                     <table>
                         <tbody>
@@ -572,15 +564,17 @@ class GameCells extends Component {
                             })}
                         </tbody>
                     </table>
-                    <input
-                        id="userInput"
-                        onChange={this.handleUserInput}
-                        type="text"
-                        placeholder="A1"
-                        required
+                    <div className="input">
+                        <input
+                            id="userInput"
+                            onChange={this.handleUserInput}
+                            type="text"
+                            placeholder="A1"
+                            required
 
-                    />
-                    <button onClick={toggleModal} id="fireButton">Kill that mothafocka</button>
+                        />
+                        <button onClick={toggleModal} id="fireButton">Let's boom some rockets!</button>
+                    </div>
                 </form>
 
                 {/* // if the user hits trhew rocket, have the modal say "you did it" + api call */}

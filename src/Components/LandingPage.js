@@ -29,7 +29,9 @@ class LandingPage extends Component {
                             </li>
                         </ul>                            
                         
-                        <Link className="enterBattle" to="GameBoard">enter the battle!</Link>
+                        <div className="battleLink">
+                            <Link className="enterBattle" to="GameBoard">enter the battle!</Link>
+                        </div>
 
                     </div>
                 </main>
@@ -38,9 +40,9 @@ class LandingPage extends Component {
                         <div className="footerContent">
                             <div className="creators">
                                 <h4>Built by:</h4>
-                                <a href="portfolio.com" rel="noreferrer" target="_blank">Alisa Kitkina</a>
-                                <a href="portfolio.com" rel="noreferrer" target="_blank">Mariya Morosovska</a>
-                                <a href="portfolio.com" rel="noreferrer" target="_blank">Miguel Cabrera</a>
+                                <a href="https://alisacodes.dev/" rel="noreferrer" target="_blank">Alisa Kitkina</a>
+                                <a href="http://marichka.ca/" rel="noreferrer" target="_blank">Mariya Morosovska</a>
+                                <a href="http://www.mcabrera.ca/" rel="noreferrer" target="_blank">Miguel Cabrera</a>
                                 <a href="https://lucassilbernagel.com/" rel="noreferrer" target="_blank">Lucas Silbernagel</a>
                             </div>
                             <div className="credits">

@@ -132,18 +132,3 @@ const template = {
     return true;
 }
 }
-
-class Rockets extends Component {
-  
-  render() {
-    // console.log(template.boom);
-    template.boom()
-    return (
-      <div>
-        <p>Hi hello hi</p>
-      </div>
-  )
-}
-}
-
-export default Rockets;
