@@ -38,10 +38,10 @@ class LandingPage extends Component {
                         <div className="footerContent">
                             <div className="creators">
                                 <h4>Built by:</h4>
-                                <a href="portfolio.com">Alisa Kitkina</a>
-                                <a href="portfolio.com">Mariya Morosovska</a>
-                                <a href="portfolio.com">Miguel Cabrera</a>
-                                <a href="https://lucassilbernagel.com/">Lucas Silbernagel</a>
+                                <a href="portfolio.com" rel="noreferrer" target="_blank">Alisa Kitkina</a>
+                                <a href="portfolio.com" rel="noreferrer" target="_blank">Mariya Morosovska</a>
+                                <a href="portfolio.com" rel="noreferrer" target="_blank">Miguel Cabrera</a>
+                                <a href="https://lucassilbernagel.com/" rel="noreferrer" target="_blank">Lucas Silbernagel</a>
                             </div>
                             <div className="credits">
                                 <h4>Rocket data provided by <a href="https://docs.spacexdata.com/?version=latest">SpaceX Rocket API</a></h4>
