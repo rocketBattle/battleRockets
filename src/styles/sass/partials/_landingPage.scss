@@ -25,22 +25,23 @@ main {
             line-height: 1.4;
             margin: 10px 0px;
             p {
-                font-size: 1.3rem;
+                font-size: 1.15rem;
                 padding-bottom: 20px;
                 border-bottom: 2px solid $accentColor;
             }
         }
     }
     .battleLink {
-        margin-top: 60px;
+        // margin: 25px 0px 40px 0px;
+        margin-bottom: 40px;
         .enterBattle {
-            font-size: 5rem;
+            font-size: 4.6rem;
             text-transform: uppercase;
             font-family: $headingFont;
             background-color: $accentColor;
-            box-shadow: 15px 15px $contentColor;
-            padding: 10px 20px;
-            margin-top: 50px;
+            box-shadow: 10px 10px $contentColor;
+            padding: 0px 20px;
+            // margin-top: 50px;
             transition: all 0.2s ease;
         }
         .enterBattle:active {

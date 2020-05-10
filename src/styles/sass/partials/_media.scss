@@ -1,0 +1,195 @@
+@media (max-width: 1155px) {
+    main {
+        padding-bottom: 40px;
+    }
+    h1 {
+        font-size: 5.5rem;
+    }
+    h2 {
+        font-size: 3rem;
+    }
+    h3 {
+        font-size: 1.5rem;
+    }
+    main {
+        .battleLink .enterBattle {
+            font-size: 3.5rem;
+        }
+        ul {
+            width: 100%;
+        }
+    }
+    footer {
+        h4 {
+            font-size: 1rem;
+        }
+        .creatorsLinks, .credits {
+            a {
+                font-size: 1.2rem;
+                margin-right: 5px;
+            }
+        }
+        .creators {
+            margin-top: 2px;
+        }
+    }
+}
+
+@media (max-width: 850px) {
+    .boardContainer {
+        h2 {
+            font-size: 4rem;
+        }
+        p {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+@media (max-width: 780px) {
+    h1 {
+        font-size: 5rem;
+    }
+    main {
+        ul {
+            margin: 0;
+        }
+    }
+
+    footer .creators a {
+        margin: 5px;
+    }
+}
+
+@media (max-width: 726px) {
+    main {
+        padding: 25px 0px;
+    }
+    h1 {
+        font-size: 4.5rem;
+    }
+    h3 {
+        font-size: 1.2rem;
+    }
+    main {
+        .battleLink .enterBattle {
+            font-size: 2.5rem;
+        }
+        ul {
+            width: 100%;
+            li p {
+                font-size: 0.8rem;
+            }
+        } 
+    }
+    .board {
+        width: auto;
+    }
+    td {
+        width: 45px;
+        height: 45px;
+        font-size: 0.8rem;
+    }
+    .boardContainer {
+        .input {
+            width: 60%;
+            margin: 40px auto;
+            button {
+                font-size: 1.2rem;
+                padding: 5px 0px;
+            }
+        }
+    }
+    table {
+        margin: 0 auto;
+    }
+    footer {
+        h4 {
+            font-size: 0.8rem;
+        }
+        .creators {
+            .creatorsLinks {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                a {
+                    margin: 5px 0px;
+                    font-size: 1.2rem;
+                }
+            }
+        } 
+        .credits {
+            a {
+                font-size: 1.2rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 555px) {
+    header {
+        padding-top: 20px;
+    }
+    h1 {
+        font-size: 4rem;
+        letter-spacing: 3px;
+        text-shadow: 5px 4px $accentColor;
+    }
+    h2 {
+        font-size: 2.5rem;
+        letter-spacing: 3px;
+        text-shadow: 3px 3px $accentColor;
+    }
+    h3 {
+        font-size: 1rem;
+    }
+    main {
+        padding: 0px;
+        h2 {
+            padding-top: 10px;
+        }
+        ul{
+            width: 100%;
+            li p {
+                padding-bottom: 10px;
+            }
+        }
+    }
+    main .battleLink{
+        margin-top: 35px;
+        .enterBattle {
+            padding: 5px 5px;
+            font-size: 2rem;
+            box-shadow: 8px 8px $contentColor;
+        }
+    } 
+    .boardContainer {
+        margin-top: 70px;
+        box-shadow: 10px 10px $accentColor;
+    }
+    td {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+    }
+    footer {
+        padding-top: 40px;
+        .creators {
+            .creatorsLinks {
+                margin-top: 5px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                a {
+                    margin: 5px 0px;
+                    font-size: 1rem;
+                }
+            }
+        } 
+        .credits {
+            a {
+                font-size: 1.2rem;
+            }
+        }
+    }
+}

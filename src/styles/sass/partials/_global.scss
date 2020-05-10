@@ -16,20 +16,20 @@ h1, h2, h4 {
 }
 
 h1 {
-    font-size: 7rem;
+    font-size: 6rem;
     letter-spacing: 8px;
     text-shadow: 8px 6px $accentColor;
+}
+
+h2 {
+    letter-spacing: 5px;
+    font-size: 3.5rem;
+    text-shadow: 4px 4px $accentColor;
 }
 
 h3 {
     font-size: 1.8rem;
     text-transform: uppercase;
-}
-
-h2 {
-    letter-spacing: 5px;
-    font-size: 4rem;
-    text-shadow: 4px 4px $accentColor;
 }
 
 h4 {
@@ -70,6 +70,8 @@ li {
 td {
     width: 60px;
     height: 60px;
+    color: $contentColor;
+    font-weight: 900;
     font-size: 1.3rem;
     font-family: $contentFont;
     background-color: $accentColor;
@@ -126,7 +128,7 @@ td {
 }
 
 .shipHit {
-    background-color: red;
+    background-color: black;
 }
 
 .blankHit {
