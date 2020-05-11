@@ -1,23 +1,21 @@
 import React, { Component } from 'react'
 import axios from 'axios'; 
 
+// If the user hit a rocket, make an axios call and display a success message
 class YouHitARocket extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            allDataArray: [],
             rocketArray: [],
-            missionArray: [],
-            shipArray: [],
-            launchArray: []
         }
     }
 
+    // App initializer to load the API
     componentDidMount() {
-        // this.getRockets()
         this.getApiData()
     }
 
+    // Set up the axios call to get the information from the API call
     getApiData = () => {
         let rockets = `https://api.spacexdata.com/v3/rockets`;
         const requestOne = axios.get(rockets);
@@ -28,6 +26,7 @@ class YouHitARocket extends Component {
                 rocketArray: [infoOne],
             })
         })).catch(errors => {
+            // We have kept this console.log on purpose, so that in case the API ever does not return information as expected, we can see why.
             console.log(errors, 'it didnt work!')
         })
     }
@@ -35,15 +34,17 @@ class YouHitARocket extends Component {
     render() {
     return (
         <div>
+            {/* Map into the API rocketArray to get values from it */}
             {this.state.rocketArray.map((rocket) => {
                 const result = rocket.data;
 
                 return (
 
+                    // Map a level deeper into the rocketArray to get the specific value
                     result.map((finalRocket) => {
+                        // if the API rocket id is equal to the rocketName passed through props, return that rocket's details.
                         if (finalRocket.rocket_id === this.props.rocketName) {
                         return (
-
                             <div className="hit">
                                 <h2>You hit a rocket. Good job, I guess.</h2>
                                 <h3><span className="fatText">{finalRocket.rocket_name}</span> </h3>
@@ -54,8 +55,9 @@ class YouHitARocket extends Component {
                                 </div>
                             </div>
                         )}
+                        return null;
                     }))
-            })
+                })
             }   
             </div>
         )    

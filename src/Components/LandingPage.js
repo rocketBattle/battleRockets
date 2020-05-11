@@ -1,10 +1,12 @@
 import React, { Component } from 'react'; 
 import { Link } from 'react-router-dom';
 
+// Home page for the application
 class LandingPage extends Component {
     render() {
         return (
             <div>
+                {/* Header with user introduction to the game */}
                 <header>
                     <div className="wrapper">
                         <h1>Battle Rockets!</h1>
@@ -13,9 +15,11 @@ class LandingPage extends Component {
                 </header>
                 <main>
                     <div className="wrapper">
+                        {/* Link to proceed with the game */}
                         <div className="battleLink">
                             <Link className="enterBattle" to="GameBoard">enter the battle!</Link>
                         </div>
+                        {/* Instructions on how to play */}
                         <h2>How to play</h2>
                         <ul>
                             <li>
@@ -35,16 +39,18 @@ class LandingPage extends Component {
                 </main>
                 <footer>
                     <div className="wrapper">
+                        {/* Footer with creator portfolio links */}
                         <div className="footerContent">
                             <div className="creators">
                                 <h4>Built by:</h4>
                                 <div className="creatorsLinks">
-                                    <a href="https://alisacodes.dev/" rel="noreferrer" target="_blank">Alisa Kitkina</a>
-                                    <a href="http://marichka.ca/" rel="noreferrer" target="_blank">Mariya Morosovska</a>
-                                    <a href="http://www.mcabrera.ca/" rel="noreferrer" target="_blank">Miguel Cabrera</a>
-                                    <a href="https://lucassilbernagel.com/" rel="noreferrer" target="_blank">Lucas Silbernagel</a>
+                                    <a href="https://alisacodes.dev/" rel="noopener noreferrer" target="_blank">Alisa Kitkina</a>
+                                    <a href="http://marichka.ca/" rel="noopener noreferrer" target="_blank">Mariya Morosovska</a>
+                                    <a href="http://www.mcabrera.ca/" rel="noopener noreferrer" target="_blank">Miguel Cabrera</a>
+                                    <a href="https://lucassilbernagel.com/" rel="noopener noreferrer" target="_blank">Lucas Silbernagel</a>
                                 </div>
                             </div>
+                            {/* Credits */}
                             <div className="credits">
                                 <h4>Rocket data provided by <a href="https://docs.spacexdata.com/?version=latest">SpaceX Rocket API</a></h4>
                             </div>
