@@ -527,6 +527,7 @@ class GameCells extends Component {
                     </table>
 
                     {/* User input form to guess which cell the rocket is at */}
+                    <label htmlFor="userInput" className="sr-only">Type a set of coordinates into this input and then press enter to check if there is a rocket in that cell. For example, A1.</label>
                     <div className="input">
                         <input
                             id="userInput"
