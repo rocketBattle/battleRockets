@@ -32,7 +32,7 @@ class LandingPage extends Component {
                                 <p>With every rocket you hit, you get some cool info about SpaceX rockets!</p>
                             </li>
                             <li>
-                                <p>The person who <span className="fatText">booms</span> 10 rockets wins!</p>
+                                <p>The person who <span className="fatText">booms</span> all 4 rockets wins!</p>
                             </li>
                         </ul>                            
                     </div>
