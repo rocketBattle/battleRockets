@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9bd00c73c0d021142231a60d29b27be0",
+    "revision": "9f03261337ab1d034d64d4aa7fab76fb",
     "url": "/battleRockets/index.html"
   },
   {
-    "revision": "df5b4d50fc77de26e003",
-    "url": "/battleRockets/static/css/main.2b9d645f.chunk.css"
+    "revision": "d419efe0a0eee9b2cf88",
+    "url": "/battleRockets/static/css/main.91caf254.chunk.css"
   },
   {
     "revision": "232befa7cd6fb72c6e45",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/battleRockets/static/js/2.7a51facd.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "df5b4d50fc77de26e003",
+    "revision": "d419efe0a0eee9b2cf88",
     "url": "/battleRockets/static/js/main.a50b7a4c.chunk.js"
   },
   {
