@@ -14,6 +14,7 @@ class GameBoard extends Component {
 
     // Function determines which user interface shows: player 1 or 2
     nextPlayer = () => {
+        window.scrollTo(0,0)
         this.setState({
             player1: !this.state.player1,
             player2: !this.state.player2
