@@ -397,6 +397,14 @@ li {
   background-color: #FCBF49;
 }
 
+.boardContainer .player2 .shipHit {
+  background-color: #003049;
+}
+
+.boardContainer .player2 .blankHit {
+  background-color: white;
+}
+
 .boardContainer .player2 button {
   border: none;
   margin-top: 15px;

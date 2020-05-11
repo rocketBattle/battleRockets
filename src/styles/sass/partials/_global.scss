@@ -142,6 +142,12 @@ li {
             font-family: $contentFont;
             background-color: $contentColor;
         }
+        .shipHit {
+            background-color: $backgroundColor;
+        }
+        .blankHit {
+            background-color: white;
+        }
         button {
             border: none;
             margin-top: 15px;
