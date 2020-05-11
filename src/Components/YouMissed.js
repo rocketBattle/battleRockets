@@ -1,7 +1,7 @@
 import React from 'react';
 
 function YouMissed(props) {
-    return <h2>You missed the rocket, loser.</h2>;
+    return <div className="missed"><h2>You missed the rocket! :(</h2></div>;
 }
 
 export default YouMissed;

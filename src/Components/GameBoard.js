@@ -46,7 +46,7 @@ class GameBoard extends Component {
                         <p>Boom the opponent!</p>
                         <GameCells2 />
                     </div>
-                    <button className="lucas" onClick={this.nextPlayer}>Toggle</button>
+                    <button className="nextPlayer" onClick={this.nextPlayer}>Next player's turn!</button>
                 </div>
             </div>
         )

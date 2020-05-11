@@ -63,43 +63,99 @@ li {
 }
 
 .board {
-    // border: 1px solid red;
+    margin: 30px auto;
     width: 420px;
-}
-
-td {
-    width: 60px;
-    height: 60px;
-    color: $contentColor;
-    font-weight: 900;
-    font-size: 1.3rem;
-    font-family: $contentFont;
-    background-color: $accentColor;
 }
 
 .boardContainer {
     padding: 20px 0px;
     margin-top: 30px;
-    background-color: $contentColor;
     min-height: 70vh;
     text-align: center;
-    box-shadow: 20px 20px $accentColor;
-    h2 {
-        text-transform: uppercase;
-        color: $accentColor;
-        font-size: 6rem;
-        text-shadow: 5px 5px $backgroundColor;
+    .player1 {
+        background-color: $contentColor;
+        box-shadow: 20px 20px $accentColor;
+        padding-bottom: 20px;
+        h2 {
+            text-transform: uppercase;
+            color: $accentColor;
+            font-size: 5rem;
+            text-shadow: 5px 5px $backgroundColor;
+        }
+        p {
+            font-size: 2rem;
+            text-transform: uppercase;
+            color: $accentColor;
+            font-weight: 900;
+        }    
+        td {
+            width: 60px;
+            height: 60px;
+            color: $contentColor;
+            font-weight: 900;
+            font-size: 1.3rem;
+            font-family: $contentFont;
+            background-color: $accentColor;
+        }
+        .shipHit {
+            background-color: $backgroundColor;
+        }
+        .blankHit {
+            background-color: white;
+        }
+        button {
+            border: none;
+            margin-top: 15px;
+            text-transform: uppercase;
+            font-family: $headingFont;
+            letter-spacing: 5px;
+        }
+        .boomRockets {
+            padding: 15px 0px;
+            background-color: $accentColor;
+            color: $contentColor;
+            box-shadow: 5px 5px $backgroundColor;
+        }
     }
-    p {
-        font-size: 2rem;
-        text-transform: uppercase;
-        color: $accentColor;
-        font-weight: 900;
+    .player2 {
+        background-color: $accentColor;
+        box-shadow: 20px 20px $contentColor;
+        padding-bottom: 20px;
+        h2 {
+            text-transform: uppercase;
+            color: $contentColor;
+            font-size: 5rem;
+            text-shadow: 5px 5px $backgroundColor;
+        }
+        p {
+            font-size: 2rem;
+            text-transform: uppercase;
+            color: $contentColor;
+            font-weight: 900;
+        }  
+        td {
+            width: 60px;
+            height: 60px;
+            color: $accentColor;
+            font-weight: 900;
+            font-size: 1.3rem;
+            font-family: $contentFont;
+            background-color: $contentColor;
+        }
+        button {
+            border: none;
+            margin-top: 15px;
+            text-transform: uppercase;
+            font-family: $headingFont;
+            letter-spacing: 5px;
+        }
+        .boomRockets {
+            padding: 15px 0px;
+            background-color: $contentColor;
+            color: $accentColor;
+            box-shadow: 5px 5px $backgroundColor;
+        }
     }
-    .board {
-        margin: 50px auto;
-    }
-
     .input {
         display: flex;
         flex-direction: column;
@@ -112,58 +168,20 @@ td {
             font-size: 2rem;
             letter-spacing: 8px;
         }
-        button {
-            border: none;
-            margin-top: 15px;
-            text-transform: uppercase;
-            font-family: $headingFont;
-            padding: 15px 0px;
-            letter-spacing: 5px;
-            font-size: 2rem;
-            background-color: $backgroundColor;
-            color: $contentColor;
-            box-shadow: 5px 5px $accentColor;
-        }
     }
 }
-
-.shipHit {
-    background-color: black;
+.nextPlayer {
+    background-color: lighten(white, 20);
+    color: $backgroundColor;
+    box-shadow: 20px 20px $accentColor;
+    padding: 10px 10px;
+    margin: 10px 0px;
+    font-size: 3rem;
+    border: none;
+    text-transform: uppercase;
+    font-family: $headingFont;
 }
-
-.blankHit {
-    background-color: gray;
-}
-
-.normal {
-    background-color: white;
-}
-
-// .board {
-//     display: flex;
-//     flex-wrap: wrap;
-//     width: 400px;
-//     .cell {
-//         width: 10%;
-//         height: 40px;
-//         display: inline-block;
-//         background-color: salmon;
-//         border: 1px solid black;
-//     }
-
-//     .cells2 {
-//         width: 10%;
-//         height: 40px;
-//         display: inline-block;
-//         background-color: black;
-//         border: 1px solid salmon;
-//     }
-// }
 
 .displayNone {
     display: none;
-}
-
-.lucas {
-    padding: 100px;
 }

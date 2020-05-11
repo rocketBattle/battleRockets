@@ -74,9 +74,6 @@ export default class Modal extends React.Component {
               &times;
               </button>
             <UserMessage isHitTrue={this.state.isHitTrue} rocketName={this.state.rocketName} />
-            <div className="battleLink">
-              <button className="nextPlayer" onClick={this.nextPlayer}>Next</button>
-            </div>
           </div>
               <div className="modalOverlay" onClick={toggleModal}></div>
         </React.Fragment>    
