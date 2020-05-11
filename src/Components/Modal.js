@@ -40,7 +40,6 @@ export default class Modal extends React.Component {
   // Function checks if user entered a valid guess or a random string 
   validateGuess = () => {
     const guess = this.userGuess(this.props.userInput);
-          console.log(this.props.userInput)
       if (!guess) {
           this.setState({
             isValidGuess: false
@@ -69,7 +68,6 @@ export default class Modal extends React.Component {
 
   render() {
       const { toggleModal } = this.props;
- 
       if (this.state.isValidGuess) { return (
         // If the user entered a valid guess, then return a 'You hit' or 'You missed' component.
         <React.Fragment>
