@@ -4,8 +4,7 @@ import React from 'react';
 function ErrorMessage(props) {
     return (
         <div className="errorMessage">
-            <h2>Don't be Safi.</h2>;
-            <h3>Enter a valid guess!</h3>
+            <h2>Please enter a valid guess!</h2>
         </div>
     )
 }

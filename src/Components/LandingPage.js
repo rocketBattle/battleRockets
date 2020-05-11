@@ -10,7 +10,7 @@ class LandingPage extends Component {
                 <header>
                     <div className="wrapper">
                         <h1>Battle Rockets!</h1>
-                        <h3><span className="fatText">Destroy</span> enemy's rockets before they <span className="fatText">boom</span> yours!</h3>
+                        <h3><span className="fatText">Destroy</span> the enemy's rockets before they <span className="fatText">destroy</span> yours!</h3>
                     </div>
                 </header>
                 <main>
@@ -23,16 +23,16 @@ class LandingPage extends Component {
                         <h2>How to play</h2>
                         <ul>
                             <li>
-                                <p>Rockets are randomly generated for you and your opponent.</p>
+                                <p>SpaceX rockets are randomly generated for you and your opponent.</p>
                             </li>
                             <li>
-                                <p>Your main goal is to <span className="fatText">boom</span> your opponent's rockets by guessing where they are hidden on the board, one square at a time! </p>
+                                <p>Your main goal is to <span className="fatText">destroy</span> your opponent's rockets by guessing where they are hidden on the board, one square at a time! </p>
                             </li>
                             <li>
-                                <p>With every rocket you hit, you get some cool info about SpaceX rockets!</p>
+                                <p>For every rocket you hit, you get some cool info about it from SpaceX!</p>
                             </li>
                             <li>
-                                <p>The person who <span className="fatText">booms</span> all 4 rockets wins!</p>
+                                <p>The person who <span className="fatText">destroys</span> all 4 of their opponent's rockets wins!</p>
                             </li>
                         </ul>                            
                     </div>
