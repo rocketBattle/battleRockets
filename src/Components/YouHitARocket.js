@@ -45,7 +45,7 @@ class YouHitARocket extends Component {
                         return (
 
                             <div>
-                                <h2>You hit a rocket!</h2>
+                                <h2>You hit a rocket. Good job, I guess.</h2>
                                 <h3>{finalRocket.rocket_name}</h3>
                                 <p>{finalRocket.description}</p>
                                 <a href={finalRocket.wikipedia}>Find Out More Info</a>

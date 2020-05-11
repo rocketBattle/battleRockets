@@ -13,7 +13,7 @@ class GameCells extends Component {
             boardSize: 7,
             hitClass: '',
             charArray: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
-            charArray2: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
+            // charArray2: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
             rocketLocation: [
                 {
                     id: 'falcon1',
@@ -368,22 +368,22 @@ class GameCells extends Component {
 
 
     // userGuess function called when user submits in the input.
-    userGuess = (guess) => {
-        if (guess === null || guess.length !== 2) {
-            alert('need a valid guess please');
-        } else {
-            let firstChar = guess.charAt(0);
-            let letter = this.state.charArray2.indexOf(firstChar);
-            let number = guess.charAt(1);
-            // if letter or number is not a number, letters are too long/short then alert user for incorrect use. 
-            if (isNaN(letter) || isNaN(number) || letter < 0 || letter > this.state.boardSize || number <= 0 || number > this.state.boardSize) {
-                alert(`Not a valid input`)
-            } else {
-                return letter + number;
-            }
-        }
-        return null;
-    }
+    // userGuess = (guess) => {
+    //     if (guess === null || guess.length !== 2) {
+    //         alert('need a valid guess please');
+    //     } else {
+    //         let firstChar = guess.charAt(0);
+    //         let letter = this.state.charArray2.indexOf(firstChar);
+    //         let number = guess.charAt(1);
+    //         // if letter or number is not a number, letters are too long/short then alert user for incorrect use. 
+    //         if (isNaN(letter) || isNaN(number) || letter < 0 || letter > this.state.boardSize || number <= 0 || number > this.state.boardSize) {
+    //             alert(`Not a valid input`)
+    //         } else {
+    //             return letter + number;
+    //         }
+    //     }
+    //     return null;
+    // }
 
     // New Generate Rocket Location
     generateRocketLocations = () => {
@@ -522,13 +522,13 @@ class GameCells extends Component {
         })
 
         // calling userGuess with userInput as parameter
-        const guess = this.userGuess(this.state.userInput);
-        console.log(guess)
-        if (!guess) {
-            return 
-        } else {
-            this.toggleModal()
-        }
+        // const guess = this.userGuess(this.state.userInput);
+        // console.log(guess)
+        // if (!guess) {
+        //     return 
+        // } else {
+        //     this.toggleModal()
+        // }
 
         // if userHits matches the total amount of hits for the game, alert user
         if (this.state.userHits === this.state.totalHits) {
@@ -572,16 +572,10 @@ class GameCells extends Component {
         console.log(this.state.userHits)
     }
 
-   
-
-
-
-
     // destructing cellarray to use as a props for modal.js
     // cellArrayz = { this.state.cellArray }
 
     render() {
-
         // Modal constants
         const { open } = this.state;
         const { toggleModal } = this;
@@ -590,7 +584,7 @@ class GameCells extends Component {
             <div className="board">
                 {open && <Modal cellArray={this.state.cellArray} 
                     userInput={this.state.userInput}
-               toggleModal={toggleModal}/>}
+                    toggleModal={toggleModal}/>}
 
                 <form action="#" onSubmit={this.checkHit}>
                     <table>
@@ -619,7 +613,7 @@ class GameCells extends Component {
                             required
                             value={this.state.userInput}
                         />
-                        <button id="fireButton">Let's boom some rockets!</button>
+                        <button onClick={toggleModal} id="fireButton">Let's boom some rockets!</button>
                     </div>
                 </form>
 
