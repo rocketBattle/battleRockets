@@ -1,6 +1,7 @@
 import React from "react";
 import UserMessage from "./UserMessage"
 import ErrorMessage from "./ErrorMessage"
+import { Link } from 'react-router-dom';
 export default class Modal extends React.Component {
   constructor(props) {
       super(props);
@@ -43,6 +44,11 @@ export default class Modal extends React.Component {
     }
   } 
 
+  nextPlayer = () => {
+    const element = document.getElementById("myDIV");
+    element.classList.toggle("mystyle");
+  }
+
   userGuess = (guess) => {
     if (guess === null || guess.length !== 2) {
     } else {
@@ -67,7 +73,10 @@ export default class Modal extends React.Component {
               <button ref={this.button} className="closeModal" aria-label="close form" onClick={toggleModal} tabIndex="0">  
               &times;
               </button>
-              <UserMessage isHitTrue={this.state.isHitTrue} rocketName = {this.state.rocketName}/>
+            <UserMessage isHitTrue={this.state.isHitTrue} rocketName={this.state.rocketName} />
+            <div className="battleLink">
+              <button className="nextPlayer" onClick={this.nextPlayer}>Next</button>
+            </div>
           </div>
               <div className="modalOverlay" onClick={toggleModal}></div>
         </React.Fragment>    
