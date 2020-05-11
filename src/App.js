@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.scss';
 import LandingPage from './Components/LandingPage';
 import GameBoard from './Components/GameBoard';
+import GameBoard2 from './Components/GameBoard2';
 
 import { 
     BrowserRouter as Router, 
@@ -14,6 +15,7 @@ class App extends Component {
             <Router basename={process.env.PUBLIC_URL}>
                 <Route exact path="/" component={LandingPage} />
                 <Route exact path="/GameBoard" component={GameBoard} />
+                <Route exact path="/GameBoard2" component={GameBoard2} />
             </Router>
         )
     }
