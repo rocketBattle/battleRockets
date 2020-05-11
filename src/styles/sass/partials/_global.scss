@@ -110,6 +110,9 @@ li {
             font-family: $headingFont;
             letter-spacing: 5px;
         }
+        button:hover {
+            cursor: pointer;
+        }
         .boomRockets {
             padding: 15px 0px;
             background-color: $accentColor;
@@ -155,6 +158,9 @@ li {
             font-family: $headingFont;
             letter-spacing: 5px;
         }
+        button:hover {
+            cursor: pointer;
+        }
         .boomRockets {
             padding: 15px 0px;
             background-color: $contentColor;
@@ -186,6 +192,9 @@ li {
     border: none;
     text-transform: uppercase;
     font-family: $headingFont;
+}
+.nextPlayer:hover {
+    cursor: pointer;
 }
 
 .displayNone {
