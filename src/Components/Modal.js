@@ -84,7 +84,7 @@ export default class Modal extends React.Component {
         // If the user entered an invalid guess, return an error message.
         <>
           <div className="modal">
-            <button ref={this.button} className="closeModal" aria-label="close form" onClick={toggleModal} tabIndex="0">  
+            <button ref={this.button} className="closeModal" aria-label="close results pop-up" onClick={toggleModal} tabIndex="0">  
             &times;
             </button>
             <ErrorMessage/>
