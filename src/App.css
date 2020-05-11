@@ -253,20 +253,20 @@ h1, h2, h4 {
 }
 
 h1 {
-  font-size: 7rem;
+  font-size: 6rem;
   letter-spacing: 8px;
   text-shadow: 8px 6px #D62828;
+}
+
+h2 {
+  letter-spacing: 5px;
+  font-size: 3.5rem;
+  text-shadow: 4px 4px #D62828;
 }
 
 h3 {
   font-size: 1.8rem;
   text-transform: uppercase;
-}
-
-h2 {
-  letter-spacing: 5px;
-  font-size: 4rem;
-  text-shadow: 4px 4px #D62828;
 }
 
 h4 {
@@ -300,43 +300,117 @@ li {
 }
 
 .board {
+  margin: 30px auto;
   width: 420px;
-}
-
-td {
-  width: 60px;
-  height: 60px;
-  font-size: 1.3rem;
-  font-family: "Lato", sans-serif;
-  background-color: #D62828;
 }
 
 .boardContainer {
   padding: 20px 0px;
   margin-top: 30px;
-  background-color: #FCBF49;
   min-height: 70vh;
   text-align: center;
-  -webkit-box-shadow: 20px 20px #D62828;
-          box-shadow: 20px 20px #D62828;
 }
 
-.boardContainer h2 {
+.boardContainer .player1 {
+  background-color: #FCBF49;
+  -webkit-box-shadow: 20px 20px #D62828;
+          box-shadow: 20px 20px #D62828;
+  padding-bottom: 20px;
+}
+
+.boardContainer .player1 h2 {
   text-transform: uppercase;
   color: #D62828;
-  font-size: 6rem;
+  font-size: 5rem;
   text-shadow: 5px 5px #003049;
 }
 
-.boardContainer p {
+.boardContainer .player1 p {
   font-size: 2rem;
   text-transform: uppercase;
   color: #D62828;
   font-weight: 900;
 }
 
-.boardContainer .board {
-  margin: 50px auto;
+.boardContainer .player1 td {
+  width: 60px;
+  height: 60px;
+  color: #FCBF49;
+  font-weight: 900;
+  font-size: 1.3rem;
+  font-family: "Lato", sans-serif;
+  background-color: #D62828;
+}
+
+.boardContainer .player1 .shipHit {
+  background-color: #003049;
+}
+
+.boardContainer .player1 .blankHit {
+  background-color: white;
+}
+
+.boardContainer .player1 button {
+  border: none;
+  margin-top: 15px;
+  text-transform: uppercase;
+  font-family: "Teko", sans-serif;
+  letter-spacing: 5px;
+}
+
+.boardContainer .player1 .boomRockets {
+  padding: 15px 0px;
+  background-color: #D62828;
+  color: #FCBF49;
+  -webkit-box-shadow: 5px 5px #003049;
+          box-shadow: 5px 5px #003049;
+}
+
+.boardContainer .player2 {
+  background-color: #D62828;
+  -webkit-box-shadow: 20px 20px #FCBF49;
+          box-shadow: 20px 20px #FCBF49;
+  padding-bottom: 20px;
+}
+
+.boardContainer .player2 h2 {
+  text-transform: uppercase;
+  color: #FCBF49;
+  font-size: 5rem;
+  text-shadow: 5px 5px #003049;
+}
+
+.boardContainer .player2 p {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: #FCBF49;
+  font-weight: 900;
+}
+
+.boardContainer .player2 td {
+  width: 60px;
+  height: 60px;
+  color: #D62828;
+  font-weight: 900;
+  font-size: 1.3rem;
+  font-family: "Lato", sans-serif;
+  background-color: #FCBF49;
+}
+
+.boardContainer .player2 button {
+  border: none;
+  margin-top: 15px;
+  text-transform: uppercase;
+  font-family: "Teko", sans-serif;
+  letter-spacing: 5px;
+}
+
+.boardContainer .player2 .boomRockets {
+  padding: 15px 0px;
+  background-color: #FCBF49;
+  color: #D62828;
+  -webkit-box-shadow: 5px 5px #003049;
+          box-shadow: 5px 5px #003049;
 }
 
 .boardContainer .input {
@@ -359,30 +433,21 @@ td {
   letter-spacing: 8px;
 }
 
-.boardContainer .input button {
+.nextPlayer {
+  background-color: white;
+  color: #003049;
+  -webkit-box-shadow: 20px 20px #D62828;
+          box-shadow: 20px 20px #D62828;
+  padding: 10px 10px;
+  margin: 10px 0px;
+  font-size: 3rem;
   border: none;
-  margin-top: 15px;
   text-transform: uppercase;
   font-family: "Teko", sans-serif;
-  padding: 15px 0px;
-  letter-spacing: 5px;
-  font-size: 2rem;
-  background-color: #003049;
-  color: #FCBF49;
-  -webkit-box-shadow: 5px 5px #D62828;
-          box-shadow: 5px 5px #D62828;
 }
 
-.shipHit {
-  background-color: red;
-}
-
-.blankHit {
-  background-color: gray;
-}
-
-.normal {
-  background-color: white;
+.displayNone {
+  display: none;
 }
 
 header, main, footer {
@@ -419,7 +484,7 @@ main ul li {
 }
 
 main ul li p {
-  font-size: 1.3rem;
+  font-size: 1.15rem;
   padding-bottom: 20px;
   border-bottom: 2px solid #D62828;
 }
@@ -429,7 +494,7 @@ main .battleLink {
 }
 
 main .battleLink .enterBattle {
-  font-size: 5rem;
+  font-size: 4.6rem;
   text-transform: uppercase;
   font-family: "Teko", sans-serif;
   background-color: #D62828;
@@ -483,17 +548,18 @@ footer .credits a {
   left: 0;
   position: fixed;
   z-index: 10;
-  opacity: 4%;
+  opacity: 50%;
 }
 
 .modal {
-  max-height: 420px;
+  min-height: 350px;
+  max-height: 500px;
   background: white;
   -webkit-animation: slidein 0.5s;
           animation: slidein 0.5s;
   z-index: 20;
   width: 50%;
-  min-width: 320px;
+  min-width: 60vw;
   top: 55%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -501,23 +567,64 @@ footer .credits a {
   position: fixed;
   overflow: hidden;
   overflow-y: auto;
-  border: 5px solid blue;
+  border: 20px solid #003049;
   border-radius: 3px;
   text-align: left;
 }
 
 .modal .closeModal {
-  font-size: 3rem;
-  margin-left: 15px;
-  color: blue;
-  border: none;
-  background: transparent;
+  font-size: 4rem;
+  margin-left: 20px;
+  padding: 0px;
+  color: #003049;
+  background-color: white;
+}
+
+.modal .errorMessage {
+  margin: 10px 30px;
+}
+
+.modal .errorMessage h3 {
+  margin-bottom: 40px;
+}
+
+.modal .hit {
+  margin: 10px 30px;
+}
+
+.modal .hit h3 {
+  font-size: 5rem;
+  color: #FCBF49;
+  text-shadow: 5px 5px #D62828;
+}
+
+.modal .hit p {
+  font-size: 1.6rem;
+  font-weight: 400;
+  text-transform: none;
+}
+
+.modal .hit .extraInfo {
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #FCBF49;
+  text-shadow: 2px 2px #D62828;
+}
+
+.modal .hit .imgContainer {
+  margin-top: 20px;
+}
+
+.modal .hit .imgContainer img {
+  width: 100%;
+  display: inline-block;
 }
 
 .modal .closeModal:hover,
 .modal .closeModal:focus {
   cursor: pointer;
-  color: #0000cc;
+  color: #D62828;
 }
 
 /* Modal Animation */
@@ -534,9 +641,167 @@ footer .credits a {
   }
 }
 
-@media (max-width: 726px) {
+@media (max-width: 1155px) {
+  main {
+    padding-bottom: 40px;
+  }
   h1 {
-    font-size: 6rem;
+    font-size: 5.5rem;
+  }
+  h2 {
+    font-size: 3rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  main .battleLink .enterBattle {
+    font-size: 3.5rem;
+  }
+  main ul {
+    width: 100%;
+  }
+  footer h4 {
+    font-size: 1rem;
+  }
+  footer .creatorsLinks a, footer .credits a {
+    font-size: 1.2rem;
+    margin-right: 5px;
+  }
+  footer .creators {
+    margin-top: 2px;
+  }
+}
+
+@media (max-width: 850px) {
+  .boardContainer h2 {
+    font-size: 4rem;
+  }
+  .boardContainer p {
+    font-size: 1.5rem;
+  }
+  .modal {
+    min-width: 80vw;
+  }
+  .modal .hit h3 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 780px) {
+  h1 {
+    font-size: 5rem;
+  }
+  main ul {
+    margin: 0;
+  }
+  footer .creators a {
+    margin: 5px;
+  }
+}
+
+@media (max-width: 726px) {
+  main {
+    padding: 25px 0px;
+  }
+  h1 {
+    font-size: 4.5rem;
+  }
+  h3 {
+    font-size: 1.2rem;
+  }
+  main .battleLink .enterBattle {
+    font-size: 2.5rem;
+  }
+  main ul {
+    width: 100%;
+  }
+  main ul li p {
+    font-size: 0.8rem;
+  }
+  .board {
+    width: auto;
+  }
+  .boardContainer .player1 h2 {
+    font-size: 3rem;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px #003049;
+  }
+  .boardContainer .player1 td {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+  .boardContainer .player1 p {
+    font-size: 1.3rem;
+  }
+  .boardContainer .player2 h2 {
+    font-size: 3rem;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px #003049;
+  }
+  .boardContainer .player2 td {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+  .boardContainer .player2 p {
+    font-size: 1.3rem;
+  }
+  .boardContainer .player1 td {
+    width: 45px;
+    height: 45px;
+    font-size: 0.8rem;
+  }
+  .boardContainer .player2 td {
+    width: 45px;
+    height: 45px;
+    font-size: 0.8rem;
+  }
+  .boardContainer .input {
+    width: 60%;
+    margin: 40px auto;
+  }
+  .boardContainer .input button {
+    font-size: 1.2rem;
+    padding: 5px 0px;
+  }
+  table {
+    margin: 0 auto;
+  }
+  .modal .hit h3 {
+    font-size: 2.5rem;
+    text-shadow: 3px 3px #D62828;
+  }
+  .modal .hit p {
+    font-size: 1rem;
+  }
+  .modal .hit .extraInfo {
+    font-size: 1.5rem;
+  }
+  .nextPlayer {
+    font-size: 2rem;
+  }
+  footer h4 {
+    font-size: 0.8rem;
+  }
+  footer .creators .creatorsLinks {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  footer .creators .creatorsLinks a {
+    margin: 5px 0px;
+    font-size: 1.2rem;
+  }
+  footer .credits a {
+    font-size: 1.2rem;
   }
 }
 
@@ -548,11 +813,6 @@ footer .credits a {
     font-size: 4rem;
     letter-spacing: 3px;
     text-shadow: 5px 4px #D62828;
-  }
-  h2 {
-    font-size: 2.5rem;
-    letter-spacing: 3px;
-    text-shadow: 3px 3px #D62828;
   }
   h3 {
     font-size: 1rem;
@@ -568,7 +828,6 @@ footer .credits a {
   }
   main ul li p {
     padding-bottom: 10px;
-    font-size: 0.8rem;
   }
   main .battleLink {
     margin-top: 35px;
@@ -579,11 +838,28 @@ footer .credits a {
     -webkit-box-shadow: 8px 8px #FCBF49;
             box-shadow: 8px 8px #FCBF49;
   }
+  .boardContainer .player1 td {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+  .boardContainer .player2 td {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+  .modal .hit h3 {
+    font-size: 1.7rem;
+    text-shadow: 2px 2px #D62828;
+  }
+  .modal .hit p {
+    font-size: 0.9rem;
+  }
+  .modal .hit .extraInfo {
+    font-size: 1.2rem;
+  }
   footer {
     padding-top: 40px;
-  }
-  footer h4 {
-    font-size: 0.8rem;
   }
   footer .creators .creatorsLinks {
     margin-top: 5px;

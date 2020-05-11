@@ -536,7 +536,7 @@ class GameCells extends Component {
                             required
                             value={this.state.userInput}
                         />
-                        <button onClick={toggleModal} id="fireButton">Let's boom some rockets!</button>
+                        <button className="boomRockets" onClick={toggleModal} id="fireButton">Let's boom some rockets!</button>
                     </div>
                 </form>
             </div>
