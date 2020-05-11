@@ -63,29 +63,3 @@ class LandingPage extends Component {
 }
 
 export default LandingPage;
-
-
-
-
-
-
-
-// const newArray = this.state.cellArray.map((cellz) => {
-//     return (
-//         cellz.map((cell) => {
-//             // from the matched locations with user input, if also matches the cell id, change rockethasbeenhit to true
-//             if (this.state.userInput === cell.id) {
-//                     cell.hasRocketbeenHit = true
-//             }
-//             return cell;
-//         })
-//     )
-// })
-// // updating the previous old state with current set state.
-// this.setState ({
-//     cellArray: newArray
-// })
-// }
-// }) 
-// console.log(this.state.userHits)
-// }
