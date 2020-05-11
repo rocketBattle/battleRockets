@@ -20,8 +20,8 @@ export default class Modal extends React.Component {
   }
 
   didWeGetAHitYet = () => {
-    const newArray = this.props.cellArray;
-    newArray.map((cellz) => {
+    const copyCell = this.props.cellArray;
+    copyCell.map((cellz) => {
       const finalCell = cellz.find(cell => {return cell.id === this.props.userInput})
       finalCell && this.setState ({
         isHitTrue: finalCell.hasRocket,
