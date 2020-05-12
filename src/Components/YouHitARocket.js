@@ -46,12 +46,12 @@ class YouHitARocket extends Component {
                         if (finalRocket.rocket_id === this.props.rocketName) {
                         return (
                             <div className="hit">
-                                <h2>You hit a rocket. Good job, I guess.</h2>
+                                <h2>You hit a rocket!</h2>
                                 <h3><span className="fatText">{finalRocket.rocket_name}</span> </h3>
                                 <p>{finalRocket.description}</p>
                                 <a className="extraInfo" href={finalRocket.wikipedia} rel="noopener noreferrer" target="_blank">Find Out More Info</a>
                                 <div className="imgContainer">
-                                    <img src={finalRocket.flickr_images[0]} alt="" />
+                                    <img src={finalRocket.flickr_images[0]} alt={finalRocket.rocket_name} />
                                 </div>
                             </div>
                         )}
