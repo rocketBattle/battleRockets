@@ -119,6 +119,10 @@ li {
             color: $contentColor;
             box-shadow: 5px 5px $backgroundColor;
         }
+        .boomRockets:hover,
+        .boomRockets:focus {
+            background-color: darken($accentColor, 10%);
+        }
     }
     .player2 {
         background-color: $accentColor;
@@ -167,6 +171,10 @@ li {
             color: $accentColor;
             box-shadow: 5px 5px $backgroundColor;
         }
+        .boomRockets:hover,
+        .boomRockets:focus {
+            background-color: darken($contentColor, 10%);
+        }
     }
     .input {
         display: flex;
@@ -193,8 +201,10 @@ li {
     text-transform: uppercase;
     font-family: $headingFont;
 }
-.nextPlayer:hover {
+.nextPlayer:hover,
+.nextPlayer:focus {
     cursor: pointer;
+    border: 2px solid $contentColor;
 }
 
 .displayNone {

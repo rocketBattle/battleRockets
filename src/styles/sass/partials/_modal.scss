@@ -58,6 +58,10 @@
       color: $contentColor;
       text-shadow: 2px 2px $accentColor;
     }
+    .extraInfo:hover,
+    .extraInfo:focus {
+      color: darken($contentColor, 10%);
+    }
     .imgContainer {
       margin-top: 20px;
       img {
