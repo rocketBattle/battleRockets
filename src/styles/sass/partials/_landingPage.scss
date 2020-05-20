@@ -32,7 +32,6 @@ main {
         }
     }
     .battleLink {
-        // margin: 25px 0px 40px 0px;
         margin-bottom: 40px;
         .enterBattle {
             font-size: 4.6rem;
@@ -41,8 +40,12 @@ main {
             background-color: $accentColor;
             box-shadow: 10px 10px $contentColor;
             padding: 0px 20px;
-            // margin-top: 50px;
             transition: all 0.2s ease;
+        }
+        .enterBattle:hover,
+        .enterBattle:focus {
+            background-color: darken($accentColor, 10%);
+            box-shadow: 10px 10px darken($contentColor, 10%);
         }
         .enterBattle:active {
             box-shadow: 8px 8px $contentColor;
