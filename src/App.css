@@ -358,12 +358,21 @@ li {
   letter-spacing: 5px;
 }
 
+.boardContainer .player1 button:hover {
+  cursor: pointer;
+}
+
 .boardContainer .player1 .boomRockets {
   padding: 15px 0px;
   background-color: #D62828;
   color: #FCBF49;
   -webkit-box-shadow: 5px 5px #003049;
           box-shadow: 5px 5px #003049;
+}
+
+.boardContainer .player1 .boomRockets:hover,
+.boardContainer .player1 .boomRockets:focus {
+  background-color: #ab2020;
 }
 
 .boardContainer .player2 {
@@ -413,12 +422,21 @@ li {
   letter-spacing: 5px;
 }
 
+.boardContainer .player2 button:hover {
+  cursor: pointer;
+}
+
 .boardContainer .player2 .boomRockets {
   padding: 15px 0px;
   background-color: #FCBF49;
   color: #D62828;
   -webkit-box-shadow: 5px 5px #003049;
           box-shadow: 5px 5px #003049;
+}
+
+.boardContainer .player2 .boomRockets:hover,
+.boardContainer .player2 .boomRockets:focus {
+  background-color: #fbad17;
 }
 
 .boardContainer .input {
@@ -452,6 +470,12 @@ li {
   border: none;
   text-transform: uppercase;
   font-family: "Teko", sans-serif;
+}
+
+.nextPlayer:hover,
+.nextPlayer:focus {
+  cursor: pointer;
+  border: 2px solid #FCBF49;
 }
 
 .displayNone {
@@ -513,6 +537,13 @@ main .battleLink .enterBattle {
   transition: all 0.2s ease;
 }
 
+main .battleLink .enterBattle:hover,
+main .battleLink .enterBattle:focus {
+  background-color: #ab2020;
+  -webkit-box-shadow: 10px 10px #fbad17;
+          box-shadow: 10px 10px #fbad17;
+}
+
 main .battleLink .enterBattle:active {
   -webkit-box-shadow: 8px 8px #FCBF49;
           box-shadow: 8px 8px #FCBF49;
@@ -556,7 +587,7 @@ footer .credits a {
   left: 0;
   position: fixed;
   z-index: 10;
-  opacity: 50%;
+  opacity: 100%;
 }
 
 .modal {
@@ -618,6 +649,11 @@ footer .credits a {
   text-transform: uppercase;
   color: #FCBF49;
   text-shadow: 2px 2px #D62828;
+}
+
+.modal .hit .extraInfo:hover,
+.modal .hit .extraInfo:focus {
+  color: #fbad17;
 }
 
 .modal .hit .imgContainer {
