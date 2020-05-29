@@ -587,7 +587,6 @@ footer .credits a {
   left: 0;
   position: fixed;
   z-index: 10;
-  opacity: 100%;
 }
 
 .modal {
