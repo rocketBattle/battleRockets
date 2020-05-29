@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/battleRockets/static/css/main.96f03b2b.chunk.css",
+    "main.css": "/battleRockets/static/css/main.b2846ebd.chunk.css",
     "main.js": "/battleRockets/static/js/main.695e77cd.chunk.js",
     "main.js.map": "/battleRockets/static/js/main.695e77cd.chunk.js.map",
     "runtime-main.js": "/battleRockets/static/js/runtime-main.046336e5.js",
@@ -8,15 +8,15 @@
     "static/js/2.7a51facd.chunk.js": "/battleRockets/static/js/2.7a51facd.chunk.js",
     "static/js/2.7a51facd.chunk.js.map": "/battleRockets/static/js/2.7a51facd.chunk.js.map",
     "index.html": "/battleRockets/index.html",
-    "precache-manifest.7370fa1538ef3898be679b5be0525228.js": "/battleRockets/precache-manifest.7370fa1538ef3898be679b5be0525228.js",
+    "precache-manifest.64123f76b4b457bdbe8ceead205293ac.js": "/battleRockets/precache-manifest.64123f76b4b457bdbe8ceead205293ac.js",
     "service-worker.js": "/battleRockets/service-worker.js",
-    "static/css/main.96f03b2b.chunk.css.map": "/battleRockets/static/css/main.96f03b2b.chunk.css.map",
+    "static/css/main.b2846ebd.chunk.css.map": "/battleRockets/static/css/main.b2846ebd.chunk.css.map",
     "static/js/2.7a51facd.chunk.js.LICENSE.txt": "/battleRockets/static/js/2.7a51facd.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.046336e5.js",
     "static/js/2.7a51facd.chunk.js",
-    "static/css/main.96f03b2b.chunk.css",
+    "static/css/main.b2846ebd.chunk.css",
     "static/js/main.695e77cd.chunk.js"
   ]
 }
