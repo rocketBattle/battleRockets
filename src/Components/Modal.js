@@ -1,6 +1,7 @@
 import React from "react";
 import UserMessage from "./UserMessage"
 import ErrorMessage from "./ErrorMessage"
+import FocusTrap from 'focus-trap-react';
 
 // Modal that shows conditional text based on user input
 export default class Modal extends React.Component {
@@ -97,15 +98,17 @@ export default class Modal extends React.Component {
     const { toggleModal } = this.props;
       if (this.state.isValidGuess) { return (
         // If the user entered a valid guess, then return a 'You hit' or 'You missed' component.
-        <React.Fragment>
-          <div className="modal">
-              <button ref={this.button} className="closeModal" aria-label="close form" onClick={toggleModal} tabIndex="0">  
-              &times;
-              </button>
-            <UserMessage isHitTrue={this.state.isHitTrue} rocketName={this.state.rocketName} />
+        <FocusTrap>
+          <div className="modalContainer">
+            <div className="modal">
+                <button ref={this.button} className="closeModal" aria-label="close form" onClick={toggleModal} tabIndex="0">  
+                &times;
+                </button>
+              <UserMessage isHitTrue={this.state.isHitTrue} rocketName={this.state.rocketName} />
+            </div>
+            <div className="modalOverlay" onClick={toggleModal}></div>
           </div>
-              <div className="modalOverlay" onClick={toggleModal}></div>
-        </React.Fragment>    
+        </FocusTrap>    
       )
       } return (
         // If the user entered an invalid guess, return an error message.
