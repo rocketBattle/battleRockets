@@ -1,13 +1,19 @@
 import React from "react";
 import UserMessage from "./UserMessage"
 import ErrorMessage from "./ErrorMessage"
+import FocusTrap from 'focus-trap-react';
 
 // Modal that shows conditional text based on user input
 export default class Modal extends React.Component {
   constructor(props) {
-      super(props);
+    super(props);
+    
       // Create ref to allow “close” button to be focused on when modal opens.
       this.button = React.createRef();
+    
+      // Bind escape function to close modal when esc key is pressed
+      this.escFunction = this.escFunction.bind(this);
+    
       this.state = {
         isHitTrue: false,
         rocketName: "",
@@ -17,11 +23,39 @@ export default class Modal extends React.Component {
       }
   }
 
-  // Focus on close button when modal opens
+  // Function to close modal when esc key is pressed
+  escFunction(event) {
+    const { toggleModal } = this.props;
+    if(event.keyCode === 27) {
+      toggleModal();
+    }
+  }
+
   componentDidMount() {
-      this.button.current.focus();
-      this.didWeGetAHitYet();
-      this.validateGuess();
+
+    // Focus on close button when modal opens
+    this.button.current.focus();
+    
+    // When modal opens, prevent the background from scrolling
+    document.body.style.overflow = 'hidden';
+    
+    // Check if a rocket was hit
+    this.didWeGetAHitYet();
+  
+    // Check if player guess is valid
+    this.validateGuess();
+    
+    // Add event listener for esc key press
+    document.addEventListener("keydown", this.escFunction, false);
+  }
+
+  componentWillUnmount() {
+    
+    // Remove event listener for esc key press
+    document.removeEventListener("keydown", this.escFunction, false);
+
+    // While modal is closed, allow page to scroll
+    document.body.style.overflow = 'unset';
   }
 
   // Function to identify if the value the user input and the cell that it connected with has a rocket and what is that rocket's name
@@ -67,18 +101,20 @@ export default class Modal extends React.Component {
 }
 
   render() {
-      const { toggleModal } = this.props;
+    const { toggleModal } = this.props;
       if (this.state.isValidGuess) { return (
         // If the user entered a valid guess, then return a 'You hit' or 'You missed' component.
-        <React.Fragment>
-          <div className="modal">
-              <button ref={this.button} className="closeModal" aria-label="close form" onClick={toggleModal} tabIndex="0">  
-              &times;
-              </button>
-            <UserMessage isHitTrue={this.state.isHitTrue} rocketName={this.state.rocketName} />
+        <FocusTrap>
+          <div className="modalContainer">
+            <div className="modal">
+                <button ref={this.button} className="closeModal" aria-label="close form" onClick={toggleModal} tabIndex="0">  
+                &times;
+                </button>
+              <UserMessage isHitTrue={this.state.isHitTrue} rocketName={this.state.rocketName} />
+            </div>
+            <div className="modalOverlay" onClick={toggleModal}></div>
           </div>
-              <div className="modalOverlay" onClick={toggleModal}></div>
-        </React.Fragment>    
+        </FocusTrap>    
       )
       } return (
         // If the user entered an invalid guess, return an error message.
