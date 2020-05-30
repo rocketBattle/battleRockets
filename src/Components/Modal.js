@@ -33,14 +33,17 @@ export default class Modal extends React.Component {
 
   componentDidMount() {
 
-      // Focus on close button when modal opens
-      this.button.current.focus();
+    // Focus on close button when modal opens
+    this.button.current.focus();
     
-      // Check if a rocket was hit
-      this.didWeGetAHitYet();
+    // When modal opens, prevent the background from scrolling
+    document.body.style.overflow = 'hidden';
     
-      // Check if player guess is valid
-      this.validateGuess();
+    // Check if a rocket was hit
+    this.didWeGetAHitYet();
+  
+    // Check if player guess is valid
+    this.validateGuess();
     
     // Add event listener for esc key press
     document.addEventListener("keydown", this.escFunction, false);
@@ -50,6 +53,9 @@ export default class Modal extends React.Component {
     
     // Remove event listener for esc key press
     document.removeEventListener("keydown", this.escFunction, false);
+
+    // While modal is closed, allow page to scroll
+    document.body.style.overflow = 'unset';
   }
 
   // Function to identify if the value the user input and the cell that it connected with has a rocket and what is that rocket's name
