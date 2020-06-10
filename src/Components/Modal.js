@@ -118,15 +118,17 @@ export default class Modal extends React.Component {
       )
       } return (
         // If the user entered an invalid guess, return an error message.
-        <>
-          <div className="modal">
-            <button ref={this.button} className="closeModal" aria-label="close results pop-up" onClick={toggleModal} tabIndex="0">  
-            &times;
-            </button>
-            <ErrorMessage/>
+        <FocusTrap>
+          <div className="modalContainer">
+            <div className="modal">
+              <button ref={this.button} className="closeModal" aria-label="close results pop-up" onClick={toggleModal} tabIndex="0">  
+              &times;
+              </button>
+              <ErrorMessage/>
+            </div>
+            <div className="modalOverlay" onClick={toggleModal}></div>
           </div>
-          <div className="modalOverlay" onClick={toggleModal}></div>
-        </>
+        </FocusTrap>
       )
   }
 }
