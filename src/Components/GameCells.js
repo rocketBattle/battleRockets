@@ -460,7 +460,7 @@ class GameCells extends Component {
 
         // if userHits matches the total amount of hits for the game, alert user
         if (this.state.userHits === this.state.totalHits) {
-            alert('gameover!')
+            alert('You win!')
         }
         // mapping state property to get to next level
         this.state.rocketLocation.map((setLocation) => {
