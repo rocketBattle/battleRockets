@@ -491,7 +491,8 @@ class GameCells extends Component {
                 this.setState({
                     cellArray: newArray
                 }
-            )            
+            )
+            return null;            
         })
     }
 
