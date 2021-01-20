@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Modal from './Modal';
+import Swal from 'sweetalert2';
 
 // Main game for Player 1
 class GameCells extends Component {
@@ -355,9 +356,16 @@ class GameCells extends Component {
 
     // Function to open/close modal
     toggleModal = () => {
-        this.setState(prevState => ({
-            open: !prevState.open
-        }));
+        if (this.state.userHits < this.state.totalHits) {
+            this.setState(prevState => ({
+                open: !prevState.open
+            }));
+        // Don't open the modal when the game ends
+        } else {
+            this.setState({
+                open: false
+            });
+        }
     };
 
     // Generate Rocket Locations
@@ -458,9 +466,17 @@ class GameCells extends Component {
             userInput: ""
         })
 
-        // if userHits matches the total amount of hits for the game, alert user
+        // if userHits matches the total amount of hits for the game, alert user that game is over
         if (this.state.userHits === this.state.totalHits) {
-            alert('You win!')
+            // Sweet alert
+            Swal.fire({
+                title: 'You win!',
+                confirmButtonColor: "#003049",
+                confirmButtonText: 'Play again',
+                // Take user back to the homepage
+            }).then(function () {
+                window.history.back();
+            });
         }
         // mapping state property to get to next level
         this.state.rocketLocation.map((setLocation) => {
@@ -491,7 +507,8 @@ class GameCells extends Component {
                 this.setState({
                     cellArray: newArray
                 }
-            )            
+            )
+            return null;            
         })
     }
 
@@ -512,12 +529,12 @@ class GameCells extends Component {
                 <form action="#" onSubmit={this.checkHit}>
                     <table>
                         <tbody>
-                            {this.state.cellArray.map((tr) => {
+                            {this.state.cellArray.map((tr, index) => {
                                 return (
-                                    <tr>
+                                    <tr key={index}>
                                         {tr.map((td) => {
                                             return (
-                                                <td className={this.callFunction(td)}>{td.id}</td>
+                                                <td key={td.id} className={this.callFunction(td)}>{td.id}</td>
                                             )
                                         })}
                                     </tr>

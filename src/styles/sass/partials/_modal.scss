@@ -81,3 +81,12 @@
 @keyframes slidein {
   from {top: -800px; opacity: 0};
 }
+
+// Sweet alert at end of game
+.swal2-header {
+  .swal2-title {
+    text-transform: uppercase;
+    text-shadow: 3px 3px $accentColor;
+    font-size: 3rem;
+  }
+}
