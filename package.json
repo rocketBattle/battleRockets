@@ -15,7 +15,8 @@
     "react-beautiful-dnd": "^13.0.0",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "sweetalert2": "^10.13.0"
   },
   "scripts": {
     "predeploy": "npm run build",
