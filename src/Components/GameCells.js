@@ -513,12 +513,12 @@ class GameCells extends Component {
                 <form action="#" onSubmit={this.checkHit}>
                     <table>
                         <tbody>
-                            {this.state.cellArray.map((tr) => {
+                            {this.state.cellArray.map((tr, index) => {
                                 return (
-                                    <tr>
+                                    <tr key={index}>
                                         {tr.map((td) => {
                                             return (
-                                                <td className={this.callFunction(td)}>{td.id}</td>
+                                                <td key={td.id} className={this.callFunction(td)}>{td.id}</td>
                                             )
                                         })}
                                     </tr>

@@ -41,11 +41,11 @@ class YouHitARocket extends Component {
                 return (
 
                     // Map a level deeper into the rocketArray to get the specific value
-                    result.map((finalRocket) => {
+                    result.map((finalRocket, index) => {
                         // if the API rocket id is equal to the rocketName passed through props, return that rocket's details.
                         if (finalRocket.rocket_id === this.props.rocketName) {
                         return (
-                            <div className="hit">
+                            <div className="hit" key={index}>
                                 <h2>You hit a rocket!</h2>
                                 <h3><span className="fatText">{finalRocket.rocket_name}</span> </h3>
                                 <p>{finalRocket.description}</p>
